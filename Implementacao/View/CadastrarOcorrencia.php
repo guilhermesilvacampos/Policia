@@ -7,7 +7,7 @@
  */
 
 require_once ("cabecalho.php");
-require_once ("sidebar.php");
+require_once("padrao.php");
 ?>
 
 
