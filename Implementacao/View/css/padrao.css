@@ -11,7 +11,7 @@ body {
 }
 
 .avatar {
-    width: 15%;
+    width: 19%;
     border-radius: 50%;
     display: block;
 
@@ -75,10 +75,9 @@ body {
     width: 230px;
     position: absolute;
     z-index: 1;
-    top: 0;
-    left: 0;
+   
     background-color: #111;
-    overflow-x: hidden;
+    
     
 }
 
