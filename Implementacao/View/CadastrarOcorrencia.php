@@ -11,7 +11,7 @@ require_once("padrao.php");
 ?>
 
 
- <link href="css/cadastrarOcorrencia1.css" rel="stylesheet">
+ <link href="css/cadastrarOcorrencia.css" rel="stylesheet">
 
     <div class="conteudo">
 

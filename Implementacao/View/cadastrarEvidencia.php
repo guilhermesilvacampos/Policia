@@ -28,7 +28,7 @@ require_once("padrao.php");
 
             <div class="form-group">
                     <fieldset id="evidencia" >
-    <legend>Marque as Evidências do Crime</legend>
+    <legend><b>Marque as Evidências do Crime</b></legend>
 
     <div>
         <input type="checkbox" id="arma" onchange="option();" value="arma" />
@@ -66,7 +66,7 @@ require_once("padrao.php");
             </div>
 
             <div id="DivArma" class="hidden">
-                <legend>ARMA</legend>
+                <legend id="legend1"><h2>ARMA</h2></legend>
 
                 <div class="form-group">
 
@@ -108,7 +108,7 @@ require_once("padrao.php");
 
 
             <div id="DivCelular" class="hidden">
-                <legend>CELULAR</legend>
+                <legend id="legend1"> <h2>CELULAR</h2></legend>
 
                 <div class="form-group">
 
@@ -157,7 +157,7 @@ require_once("padrao.php");
             </div>
 
             <div id="DivObjeto" class="hidden">
-                <legend>OBJETO</legend>
+                <legend id="legend1"> <h2>OBJETO</h2></legend>
                 <div class="form-group">
 
 
@@ -171,8 +171,8 @@ require_once("padrao.php");
 
 
                     <label for="descricaoObjeto">Descrição do Objeto</label>
-                    <input type="text" id="descricaoObjeto" class="form-control form-control-lg"
-                           placeholder="Descreva o Objeto" required>
+                    <textarea type="text" id="descricaoObjeto" class="form-control form-control-lg"
+                           placeholder="Descreva o Objeto" required> </textarea>
 
                 </div>
 
@@ -180,7 +180,7 @@ require_once("padrao.php");
             </div>
 
             <div id="DivSubstancia" class="hidden">
-                <legend>SUBSTÂNCIA</legend>
+                <legend id="legend1"><h2>SUBSTÂNCIA</h2></legend>
 
                 <div class="form-group">
                     <label for="tipoSubstancia">Tipo de Substância</label>
@@ -227,7 +227,7 @@ require_once("padrao.php");
 
 
             <div id="DivVeiculo" class="hidden">
-                <legend>VEÍCULO</legend>
+                <legend id="legend1"> <h2>VEÍCULO</h2></legend>
 
                 <div class="form-group">
                     <label for="chassi">Chassi</label>

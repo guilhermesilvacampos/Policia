@@ -20,6 +20,8 @@ function carregaClasseView($nomeDaClasse)
     require_once("View/" . $nomeDaClasse . ".php");
 }
 
+
+
 spl_autoload_register("carregaClasseController");
 spl_autoload_register("carregaClasseDAO");
 spl_autoload_register("carregaClasseModel");
@@ -27,7 +29,8 @@ spl_autoload_register("carregaClasseView");
 
 error_reporting(E_ALL ^ E_NOTICE);
 
-//require_once("C:/xampp/htdocs/Policia/Implementacao/DAO/conecta.php");
+require_once("C:/xampp/htdocs/Policia/Implementacao/DAO/conecta.php");
+require_once("mostra-alerta.php");
 ?>
 <html>
 
@@ -46,6 +49,10 @@ error_reporting(E_ALL ^ E_NOTICE);
 
 </head>
 <body>
+    <?php
+mostraAlerta("danger");
+mostraAlerta("success");
+?>
 
 
 		
