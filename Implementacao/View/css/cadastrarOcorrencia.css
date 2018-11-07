@@ -1,8 +1,9 @@
 .conteudo{
 
     margin-left: 20%;
-    margin-top: 5%;
+    margin-top: 3%;
     margin-right: 20%;
+    margin-bottom: 20%;
 
     border: solid;
     border-width: thin;
@@ -36,4 +37,17 @@ h1{
 
 table{
     margin-right: 15%;
+}
+
+
+#legend1{
+    border: solid;
+    
+    margin-top: 5%;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+}
+#b1{
+    margin-bottom: 20px;
 }

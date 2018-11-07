@@ -8,6 +8,7 @@
 
 require_once ("cabecalho.php");
 require_once("padrao.php");
+$tamanho = 1;
 ?>
 
 
@@ -108,14 +109,33 @@ require_once("padrao.php");
 </select>
   </div>
 
+  
+
+
+
+
+
+
+
 
   <div class="form-group">
-  	<label for="pessoasEnvolvidas">Pessoas Envolvidas(não sei como vamos fazer pasa selecionar as pessoas)</label>
+  	
+    <legend id="legend1"> <h2><b>Pessoas Envolvidas</b></h2></legend>
+    <br>
+
+    <input type="button" id="add_field" value="Inserir Pessoas Envolvidas" class="btn btn-primary btn btn-lg">
+
+
+<div id="listas" class="form-group">
+   <br>
+</div>
+
+
 
 
   </div>
 
-<button type="submit" class="btn btn-primary">Cadastrar</button>
+<button type="submit" id="b1" class="btn btn-primary">Cadastrar</button>
 
         </div>
     </form>
@@ -158,6 +178,44 @@ require_once("padrao.php");
       });
     
     });
+
+
+
+
+    function inserirPessoas(){
+
+<?= $tamanho = $tamanho+1;?>
+
+console.log(<?=$tamanho?>);
+
+    }
+
+
+
+
+    $(document).ready(function() {
+        var campos_max          = 10;   //max de 10 campos
+        var x = 1; // campos iniciais
+        $('#add_field').click (function(e) {
+                e.preventDefault();     //prevenir novos clicks
+                if (x < campos_max) {
+                        $('#listas').append('<div>\
+      <label for="pessoa">Pessoa Envolvida</label>\
+    <input type="number" id="pessoa"  name="campo[]" class="form-control form-control-lg" \
+    placeholder="Digite o CPF do envolvido" >\
+    <a href="#" class="remover_campo">Remover</a>\
+    </div>');
+                        x++;
+                }
+        });
+ 
+        // Remover o div anterior
+        $('#listas').on("click",".remover_campo",function(e) {
+                e.preventDefault();
+                $(this).parent('div').remove();
+                x--;
+        });
+});
     
   </script>
 
