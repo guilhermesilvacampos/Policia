@@ -29,7 +29,7 @@ require_once("cabecalho.php");
 
  <img src="image/logo-pf.png"  class="logo">
 
-        <a  href="index.php"><i class="fas fa-home"></i>Início</a>
+        <a  href="inicio.php"><i class="fas fa-home"></i>Início</a>
         <a href="#services"> <i class="far fa-question-circle"></i>Ajuda</a>
         <button class="dropdown-btn"><i class="far fa-user"></i>Cidadão
             <i class="fa fa-caret-down"></i>

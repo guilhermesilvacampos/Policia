@@ -335,7 +335,7 @@ require_once("padrao.php");
             </div>
 
 
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Cadastrar</button>
 
         </div>
     </form>

@@ -9,19 +9,34 @@ $cidadao = new Cidadao($_POST ['nomeCidadao'],$_POST ['alcunhaCidadao'],$_POST [
 
 $cidadaoDAO = new CidadaoDAO($conexao);
 
+$nome = $cidadao->nomeCidadao;
+
+ if(!$cidadaoDAO->insereCidadao($cidadao)){ ?>
+
+ <?php
+ session_start();
+
+ 
 
 
- if($cidadaoDAO->insereCidadao($cidadao)){ ?>
-
-	<p class = "text-success"> Cidadão <?= $cidadao->nomeCidadao ?>, inserido com sucesso! </p>
-<?php } else {
-
-$msg = mysqli_error($conexao);
+ $_SESSION["success"] = " O Cidadão "." ".$nome.", foi inserido com sucesso!";
+	
+	//header("Location:C:/xampp/htdocs/Policia/Implementacao/View/index.php");
+	header("Location:../View/inicio.php",  true,  302 );
 
  ?>
 
-	<p class = "text-danger"> O Cidadão <?= $cidadao->nomeCidadao ?> não foi adiicionado <?= $msg ?>  </p>
-<?php
+<?php } else {
+
+	
+
+$msg = mysqli_error($conexao);
+session_start();
+  $_SESSION["danger"] = "O Cidadão "." ".$nome.", não foi adicionado". $msg." ";
+	
+	
+	header("Location:../View/inicio.php",  true,  302 );
+
 }
 
 
@@ -30,7 +45,7 @@ mysqli_close($conexao);
 
 
 
- ?>
+ 
 
 
-<?php include("C:/xampp/htdocs/Policia/Implementacao/View/rodape.php");
+include("C:/xampp/htdocs/Policia/Implementacao/View/rodape.php");

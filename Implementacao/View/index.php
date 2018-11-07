@@ -1,35 +1,45 @@
 <?php
-require_once("cabecalho.php");
-require_once("padrao.php");
+/**
+ * Created by PhpStorm.
+ * User: Gui
+ * Date: 04/10/2018
+ * Time: 17:59
+ */
+
 
 ?>
-<link href="css/cadastrarCidadao.css" rel="stylesheet">
-
-	<div class="conteudo">
-
-<form>
-<div class="inputs">
-  <div class="form-group">
+    <link href="css/index.css" rel="stylesheet">
 
 
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-  </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-  </div>
-  <div class="form-group form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+    <form class="modal-content animate">
+        <div class="imgcontainer">
+            <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+            <img src="image/avatar.jpg" alt="Avatar" class="avatar">
+        </div>
 
-</div>
-</form>
+        <div class="container ">
+            <div class="form-horizontal">
+                <label for="uname"><b>Login</b></label>
+                <input type="text" placeholder="Enter Username" name="uname" required>
+            </div>
+            <div class="form-horizontal">
+                <label for="psw"><b>Senha</b></label>
+                <input type="password" placeholder="Enter Password" name="psw" required>
+            </div>
+            <div class="cont1">
+                <button type="submit">Login</button>
+            </div>
 
-</div>
+        </div>
+
+        <div class="container cont2" style="background-color:#f1f1f1">
+            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">
+                Cancel
+            </button>
+            <span class="psw">Forgot <a href="#">password?</a></span>
+        </div>
+    </form>
+
 
 <?php
 require_once("rodape.php");
