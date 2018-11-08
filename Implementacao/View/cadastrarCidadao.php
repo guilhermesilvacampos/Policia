@@ -35,26 +35,23 @@ require_once("padrao.php");
     <label for="data">Data de Nascimento</label>
     <input type="date" id="data" name="dataCidadao" class="form-control form-control-lg" required >
   </div>
+
   <div class="form-group">
     <label for="nacionalidade">Nacionalidade</label>
-    <select  id="nacionalidade" name="nacionalidadeCidadao" class="form-control form-control-lg" required>
-  <option>Default select</option>
-</select>
+    <input type="text" id="nacionalidade" name="nacionalidadeCidadao" class="form-control form-control-lg"  required>
   </div>
 
+<div class="form-group">
+    <label for="estados">Estado</label>
+    <select  id="estados" name="estadoCidadao" class="form-control form-control-lg" required>
   
-
-<div class="form-group">
-    <label for="estado">Estado</label>
-    <select  id="estado" name="estadoCidadao" class="form-control form-control-lg" required>
-  <option>Default select</option>
 </select>
   </div>
 
 <div class="form-group">
-    <label for="cidade">Cidade</label>
-    <select  id="cidade" name="cidadeCidadao" class="form-control form-control-lg" required>
-  <option>Default select</option>
+    <label for="cidades">Cidade</label>
+    <select  id="cidades" name="cidadeCidadao" class="form-control form-control-lg" required>
+  
 </select>
   </div>
 
@@ -94,6 +91,47 @@ require_once("padrao.php");
 </form>
 
 </div>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js" type="text/javascript"></script>
+  <script type="text/javascript"> 
+    
+    $(document).ready(function () {
+    
+      $.getJSON('estados_cidades.js', function (data) {
+        var items = [];
+        var options = '<option value="">escolha um estado</option>';  
+        $.each(data, function (key, val) {
+          options += '<option value="' + val.nome + '">' + val.nome + '</option>';
+        });         
+        $("#estados").html(options);        
+        
+        $("#estados").change(function () {        
+        
+          var options_cidades = '';
+          var str = "";         
+          
+          $("#estados option:selected").each(function () {
+            str += $(this).text();
+          });
+          
+          $.each(data, function (key, val) {
+            if(val.nome == str) {             
+              $.each(val.cidades, function (key_city, val_city) {
+                options_cidades += '<option value="' + val_city + '">' + val_city + '</option>';
+              });             
+            }
+          });
+          $("#cidades").html(options_cidades);
+          
+        }).change();    
+      
+      });
+    
+    });
+
+    </script>
 
 <?php
 require_once("rodape.php");

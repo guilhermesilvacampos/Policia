@@ -24,7 +24,7 @@ class Cidadao {
 
 
 
-	function __construct($nomeCidadao= "indefinido", $alcunhaCidadao = "indefinido", $rgCidadao=9999, $cpfCidadao=9999,$dataCidadao="25/09/2000", $nacionalidadeCidadao="Brasileira", $estadoCidadao="MS", $cidadeCidadao="Campo Grande",$ruaCidadao="rua das garças", $numeroCidadao=1234, $bairroCidadao="jardim morumbi") {
+	function __construct($nomeCidadao, $alcunhaCidadao, $rgCidadao, $cpfCidadao,$dataCidadao, $nacionalidadeCidadao, $estadoCidadao, $cidadeCidadao,$ruaCidadao, $numeroCidadao, $bairroCidadao) {
 
 		$this->nomeCidadao = $nomeCidadao;
 		$this->alcunhaCidadao= $alcunhaCidadao;

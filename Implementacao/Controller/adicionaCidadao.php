@@ -11,7 +11,7 @@ $cidadaoDAO = new CidadaoDAO($conexao);
 
 $nome = $cidadao->nomeCidadao;
 
- if(!$cidadaoDAO->insereCidadao($cidadao)){ ?>
+ if($cidadaoDAO->insereCidadao($cidadao)){ ?>
 
  <?php
  session_start();

@@ -27,7 +27,7 @@ $tamanho = 1;
         <legend><h1 class="col-md-offset-1">Cadastrar Ocorrência</h1></legend>
     </div>
 
-    <form action="aqui vai o  nome da classe que vai ser enviado o form" method="post">
+    <form action="/Policia/Implementacao/Controller/adicionaOcorrencia.php" method="post">
 
         <div class="inputs">
 
@@ -35,14 +35,14 @@ $tamanho = 1;
 
 			<div class="form-group">
     <label for="estados">Estado</label>
-    <select  id="estados" class="form-control form-control-lg" required>
+    <select  id="estados" name="estadoOcorrencia" class="form-control form-control-lg" required>
   <option value=" "></option>
 </select>
   </div>
 
 <div class="form-group">
     <label for="cidades">Cidade</label>
-    <select  id="cidades" class="form-control form-control-lg" required>
+    <select  id="cidades" name="cidadeOcorrencia" class="form-control form-control-lg" required>
   
 </select>
   </div>
@@ -53,13 +53,13 @@ $tamanho = 1;
         <td class="col-md-2">
 <div class="form-group">
           <label for="rua">Rua</label>
-    <input type="text" id="rua" class="form-control form-control-lg" placeholder="Digite a rua em que ocorreu o crime" required>
+    <input type="text" id="rua" name="ruaOcorrencia" class="form-control form-control-lg" placeholder="Digite a rua em que ocorreu o crime" required>
 </div>
      </td>
     <td>
 <div class="form-group">
       <label for="numero">Número</label>
-    <input type="number" id="numero" class="form-control form-control-lg"  required> 
+    <input type="number" id="numero" name="numeroCasaOcorrencia" class="form-control form-control-lg"  required> 
 </div>
   </td>
 
@@ -70,41 +70,41 @@ $tamanho = 1;
 
 <div class="form-group">
           <label for="bairro">Bairro</label>
-    <input type="text" id="bairro" class="form-control form-control-lg" placeholder="Digite o bairro onde ocorreu o crime" required>
+    <input type="text" id="bairro" name="bairroOcorrencia" class="form-control form-control-lg" placeholder="Digite o bairro onde ocorreu o crime" required>
 </div>
 
 <div class="form-group">
     <label for="data">Data do Crime</label>
-    <input type="date" id="data" class="form-control form-control-lg"  >
+    <input type="date" id="data" name="dataOcorrencia" class="form-control form-control-lg"  >
   </div>
 
   <div class="form-group">
     <label for="hora">Hora do Crime</label>
-    <input type="time" id="hora" class="form-control form-control-lg"  >
+    <input type="time" id="hora" name="horaOcorrencia" class="form-control form-control-lg"  >
   </div>
   
 <div class="form-group">
     <label for="delegado">Delegado Responsável</label>
-    <select  id="delegado" class="form-control form-control-lg" required>
+    <select  id="delegado" name="delegadoOcorrencia" class="form-control form-control-lg" required>
   <option>Default select</option>
 </select>
   </div>
 
   <div class="form-group">
     <label for="equipe">Equipe Envolvida</label>
-    <select  id="equipe" class="form-control form-control-lg" required>
+    <select  id="equipe" name="equipeOcorrencia" class="form-control form-control-lg" required>
   <option>Default select</option>
 </select>
   </div>
 
   <div>
-        <input type="checkbox" id="segredo" value="segredo" />
+        <input type="checkbox" name="segredoOcorrencia" id="segredo" value="true" />
         <label for="segredo">Segredo de Justiça</label>
     </div>
 
     <div class="form-group">
     <label for="status">Status</label>
-    <select  id="status" class="form-control form-control-lg" required>
+    <select  id="status" name="statusOcorrencia" class="form-control form-control-lg" required>
   <option>Default select</option>
 </select>
   </div>
@@ -135,9 +135,10 @@ $tamanho = 1;
 
   </div>
 
-<button type="submit" id="b1" class="btn btn-primary">Cadastrar</button>
+
 
         </div>
+        <button type="submit" id="b1" class="btn btn-primary">Cadastrar</button>
     </form>
 </div>
 
@@ -182,13 +183,7 @@ $tamanho = 1;
 
 
 
-    function inserirPessoas(){
-
-<?= $tamanho = $tamanho+1;?>
-
-console.log(<?=$tamanho?>);
-
-    }
+    
 
 
 
@@ -196,16 +191,22 @@ console.log(<?=$tamanho?>);
     $(document).ready(function() {
         var campos_max          = 10;   //max de 10 campos
         var x = 1; // campos iniciais
+        
+        
         $('#add_field').click (function(e) {
                 e.preventDefault();     //prevenir novos clicks
                 if (x < campos_max) {
+
                         $('#listas').append('<div>\
       <label for="pessoa">Pessoa Envolvida</label>\
-    <input type="number" id="pessoa"  name="campo[]" class="form-control form-control-lg" \
-    placeholder="Digite o CPF do envolvido" >\
+    <input type="number" id="pessoa"  name="pessoasEnvolvidasArray[]" class="form-control form-control-lg" \
+    placeholder="Digite o CPF do envolvido" required>\
     <a href="#" class="remover_campo">Remover</a>\
     </div>');
+                       
                         x++;
+                         
+
                 }
         });
  
