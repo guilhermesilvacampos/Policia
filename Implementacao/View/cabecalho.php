@@ -29,7 +29,7 @@ spl_autoload_register("carregaClasseView");
 
 error_reporting(E_ALL ^ E_NOTICE);
 
-require_once("C:/xampp/htdocs/Policia/Implementacao/DAO/conecta.php");
+require_once("../DAO/conecta.php");
 require_once("mostraAlerta.php");
 ?>
 <html>

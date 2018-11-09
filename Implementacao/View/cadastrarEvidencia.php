@@ -2,6 +2,11 @@
 require_once("cabecalho.php");
 require_once("padrao.php");
 
+if(isset($_SESSION['idOcorrencia'])){
+    $idOcorrencia = $_SESSION['idOcorrencia'];
+}
+
+
 ?>
     <link href="css/cadastrarEvidencia.css" rel="stylesheet">
 
@@ -11,15 +16,15 @@ require_once("padrao.php");
         <legend><h1 class="col-md-offset-1">Cadastrar Evidência</h1></legend>
     </div>
 
-    <form action="aqui vai o  nome da classe que vai ser enviado o form" method="post">
+    <form action="../Controller/adicionaEvidencia.php" method="post">
 
         <div class="inputs">
             <div class="form-group ">
 
+<?= $idOcorrencia ?>
 
-                <label for="NumeroDaOcorrencia">Número da Ocorrência</label>
-                <input type="number" id="NumeroDaOcorrencia" class="form-control form-control-lg"
-                       placeholder="Digite o Número da Ocorrência" required>
+                
+                <input type="number" id="NumeroDaOcorrencia" value="{$idOcorrencia}" class="hidden form-control form-control-lg" required>
 
             </div>
 
@@ -335,7 +340,7 @@ require_once("padrao.php");
             </div>
 
 
-            <button type="submit" class="btn btn-primary">Cadastrar</button>
+            <button type="submit" class="btn btn-success btn-lg">Cadastrar</button>
 
         </div>
     </form>

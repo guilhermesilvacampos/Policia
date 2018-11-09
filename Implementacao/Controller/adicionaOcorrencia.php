@@ -1,9 +1,9 @@
 <?php
 
-require_once("C:/xampp/htdocs/Policia/Implementacao/View/cabecalho.php");
+require_once("../View/cabecalho.php");
 
-require_once("C:/xampp/htdocs/Policia/Implementacao/Model/ocorrencia.php");
-require_once("C:/xampp/htdocs/Policia/Implementacao/DAO/ocorrenciaDAO.php");
+require_once("../Model/ocorrencia.php");
+require_once("../DAO/ocorrenciaDAO.php");
 
 
 //echo $_POST ['estadoOcorrencia'] ;
@@ -31,25 +31,48 @@ $_POST['segredoOcorrencia'] = (isset($_POST['segredoOcorrencia']) ) ? "true" : "
 
 
 
-$ocorrencia = new Ocorrencia($_POST ['estadoOcorrencia'], $_POST ['cidadeOcorrencia'], $_POST ['ruaOcorrencia'], $_POST ['numeroCasaOcorrencia'],  $_POST ['bairroOcorrencia'], $_POST ['dataOcorrencia'], $_POST ['dataOcorrencia'], $_POST ['horaOcorrencia'], $_POST ['delegadoOcorrencia'], $_POST ['delegadoOcorrencia'], $_POST ['equipeOcorrencia'], $_POST['segredoOcorrencia'], $_POST ['statusOcorrencia']);
+$ocorrencia = new Ocorrencia($_POST ['estadoOcorrencia'], $_POST ['cidadeOcorrencia'], $_POST ['ruaOcorrencia'], $_POST ['numeroCasaOcorrencia'],  $_POST ['bairroOcorrencia'], $_POST ['dataOcorrencia'], $_POST ['horaOcorrencia'], $_POST ['delegadoOcorrencia'], $_POST ['equipeOcorrencia'], $_POST['segredoOcorrencia'], $_POST ['statusOcorrencia']);
 
 
 $ocorrenciaDAO = new OcorrenciaDAO($conexao);
 
+$inseriuNaTabela = true;
+
+if($ocorrenciaDAO->insereOcorrencia($ocorrencia)){
+
+	$idUltimaOcorrencia = $ocorrenciaDAO->buscaIdUltimaOcorrencia();
+
+	foreach ($idUltimaOcorrencia as $key) {
+		$idUltimaOcorrencia1 = $key;
+		echo $idUltimaOcorrencia1;
+	}
+
+	
+
+	foreach ($_POST ['pessoasEnvolvidasArray'] as $cpfEnvolvido) {
+		if($ocorrenciaDAO->insereEnvolvido($idUltimaOcorrencia1,$cpfEnvolvido)){
+			$inseriuNaTabela = true;
+		}else{
+			$inseriuNaTabela = false;
+		}
+
+	}
+
+}
 
 
- if($ocorrenciaDAO->insereOcorrencia($ocorrencia)){ ?>
+ if($inseriuNaTabela){ ?>
 
  <?php
  session_start();
 
  
 
-
+$_SESSION['idOcorrencia'] = $idUltimaOcorrencia1;
  $_SESSION["success"] = " A Ocorrencia foi inserida com sucesso!";
 	
 	//header("Location:C:/xampp/htdocs/Policia/Implementacao/View/index.php");
-	header("Location:../View/inicio.php",  true,  302 );
+	header("Location:../View/cadastrarEvidencia.php",  true,  302 );
 
  ?>
 
@@ -67,13 +90,11 @@ session_start();
 }
 
 
-$idUltimaOcorrencia = $ocorrenciaDAO->buscaIdUltimaOcorrencia();
 
 
 
-foreach ($_POST ['pessoasEnvolvidasArray'] as $envolvido) {
-	$ocorrenciaDAO->insereEnvolvido($idUltimaOcorrencia,$envolvido);
-}
+
+
 
 
 
@@ -96,4 +117,4 @@ mysqli_close($conexao);
 
 
 
- include("C:/xampp/htdocs/Policia/Implementacao/View/rodape.php");
+ include("../View/rodape.php");

@@ -7,7 +7,7 @@ require_once("padrao.php");
 
 	<div class="conteudo">
 
-<form action="/Policia/Implementacao/Controller/adicionaCidadao.php" method="post">
+<form action="../Controller/adicionaCidadao.php" method="post">
 <div class="inputs">
   <div class="form-group">
 
@@ -83,7 +83,7 @@ require_once("padrao.php");
   
 
 
-  <button type="submit"  class="btn btn-primary">Cadastrar</button>
+  <button type="submit"  class="btn btn-success btn-lg">Cadastrar</button>
   </div>
   
 

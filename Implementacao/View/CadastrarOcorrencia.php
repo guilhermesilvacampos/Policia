@@ -27,7 +27,7 @@ $tamanho = 1;
         <legend><h1 class="col-md-offset-1">Cadastrar Ocorrência</h1></legend>
     </div>
 
-    <form action="/Policia/Implementacao/Controller/adicionaOcorrencia.php" method="post">
+    <form action="../Controller/adicionaOcorrencia.php" method="post">
 
         <div class="inputs">
 
@@ -136,9 +136,9 @@ $tamanho = 1;
   </div>
 
 
-
+<button type="submit" id="b1" class="btn btn-success btn-lg">Cadastrar</button>
         </div>
-        <button type="submit" id="b1" class="btn btn-primary">Cadastrar</button>
+        
     </form>
 </div>
 
