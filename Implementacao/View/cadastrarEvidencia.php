@@ -21,10 +21,10 @@ if(isset($_SESSION['idOcorrencia'])){
         <div class="inputs">
             <div class="form-group ">
 
-<?= $idOcorrencia ?>
+<?= "id Ocorrencia: ".$idOcorrencia ?>
 
                 
-                <input type="number" id="NumeroDaOcorrencia" value="{$idOcorrencia}" class="hidden form-control form-control-lg" required>
+                <input type="number" id="NumeroDaOcorrencia" value="<?=$idOcorrencia?>" class="hidden form-control form-control-lg" required>
 
             </div>
 

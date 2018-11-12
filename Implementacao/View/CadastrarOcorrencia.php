@@ -134,10 +134,8 @@ $listaEquipe = $equipeDAO->listaEquipe();
     </div>
 
     <div class="form-group">
-    <label for="status">Status</label>
-    <select  id="status" name="statusOcorrencia" class="form-control form-control-lg" required>
-  <option>Default select</option>
-</select>
+    
+    <input  id="status" name="statusOcorrencia" value="ativa" class=" hidden form-control form-control-lg" required> </input>
   </div>
 
   
