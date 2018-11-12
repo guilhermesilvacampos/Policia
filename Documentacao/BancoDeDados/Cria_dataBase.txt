@@ -69,3 +69,5 @@ INSERT INTO `delegado`(`idDelegado`, `nomeDelegado`) VALUES (2,'Delegado Siqueir
 
 INSERT INTO `equipe`(`idEquipe`, `nomeEquipe`) VALUES (1,'Equipe Rocket');
 
+INSERT INTO `equipe`(`idEquipe`, `nomeEquipe`) VALUES (2,'Equipe #VemProFut');
+

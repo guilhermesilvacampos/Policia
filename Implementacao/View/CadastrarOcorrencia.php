@@ -12,14 +12,18 @@ require_once("padrao.php");
 
 require_once("../Model/delegado.php");
 require_once("../DAO/delegadoDAO.php");
+require_once("../Model/equipe.php");
+require_once("../DAO/equipeDAO.php");
+
 $tamanho = 1;
 
 
 
 $delegadoDAO = new DelegadoDAO($conexao);
-
-
 $listaDelegados = $delegadoDAO->listaDelegados();
+
+$equipeDAO = new EquipeDAO($conexao);
+$listaEquipe = $equipeDAO->listaEquipe();
 
 ?>
 
@@ -113,7 +117,14 @@ $listaDelegados = $delegadoDAO->listaDelegados();
   <div class="form-group">
     <label for="equipe">Equipe Envolvida</label>
     <select  id="equipe" name="idEquipe" class="form-control form-control-lg" required>
-  <option value="1">Equipe Rocket</option>
+  <?php
+      foreach ($listaEquipe as $equipe) {
+        ?>
+        
+ <option value="<?= $equipe->idEquipe?>"><?= $equipe->nomeEquipe?></option>
+        <?php
+      }
+      ?>
 </select>
   </div>
 
