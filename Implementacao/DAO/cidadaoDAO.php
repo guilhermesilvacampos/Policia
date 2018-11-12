@@ -17,7 +17,7 @@ $cidadao->alcunhaCidadao = mysqli_real_escape_string($this->conexao,$cidadao->al
 
 
 
-$query = "insert into cidadao (nomeCidadao, alcunhaCidadao,rgCidadao,cpfCidadao,dataCidadao,nacionalidadeCidadao, estadoCidadao,cidadeCidadao, ruaCidadao, numeroCidadao, bairroCidadao) values ('{$cidadao->nomeCidadao}','{$cidadao->alcunhaCidadao}','{$cidadao->rgCidadao}', '{$cidadao->cpfCidadao}', '{$cidadao->dataCidadao}', '{$cidadao->nacionalidadeCidadao}','{$cidadao->estadoCidadao}','{$cidadao->cidadeCidadao}','{$cidadao->ruaCidadao}',{$cidadao->numeroCidadao}, '{$cidadao->bairroCidadao}')";
+$query = "insert into cidadao (cpfCidadao,nomeCidadao, alcunhaCidadao,rgCidadao,dataCidadao,nacionalidadeCidadao, estadoCidadao,cidadeCidadao, ruaCidadao, numeroCasaCidadao, bairroCidadao) values ( '{$cidadao->cpfCidadao}','{$cidadao->nomeCidadao}','{$cidadao->alcunhaCidadao}','{$cidadao->rgCidadao}', '{$cidadao->dataCidadao}', '{$cidadao->nacionalidadeCidadao}','{$cidadao->estadoCidadao}','{$cidadao->cidadeCidadao}','{$cidadao->ruaCidadao}',{$cidadao->numeroCasaCidadao}, '{$cidadao->bairroCidadao}')";
 //echo $query;
 return mysqli_query($this->conexao,$query);	
 }

@@ -4,7 +4,7 @@ require_once("../Model/cidadao.php");
 require_once("../DAO/cidadaoDAO.php");
 
 
-$cidadao = new Cidadao($_POST ['nomeCidadao'],$_POST ['alcunhaCidadao'],$_POST ['rgCidadao'],$_POST ['cpfCidadao'],$_POST ['dataCidadao'],$_POST ['nacionalidadeCidadao'],$_POST ['estadoCidadao'],$_POST ['cidadeCidadao'],$_POST ['ruaCidadao'],$_POST ['numeroCidadao'],$_POST ['bairroCidadao']);
+$cidadao = new Cidadao($_POST ['cpfCidadao'],$_POST ['nomeCidadao'],$_POST ['alcunhaCidadao'],$_POST ['rgCidadao'],$_POST ['dataCidadao'],$_POST ['nacionalidadeCidadao'],$_POST ['estadoCidadao'],$_POST ['cidadeCidadao'],$_POST ['ruaCidadao'],$_POST ['numeroCasaCidadao'],$_POST ['bairroCidadao']);
 
 
 $cidadaoDAO = new CidadaoDAO($conexao);

@@ -7,20 +7,19 @@ class Ocorrencia {
 
 public $idOcorrencia;
   public $estadoOcorrencia;
-
 public $cidadeOcorrencia ;
 public $ruaOcorrencia ;
 public $numeroCasaOcorrencia ;
 public $bairroOcorrencia ;
 public $dataOcorrencia;
 public $horaOcorrencia ;
-public $delegadoOcorrencia ;
-public $equipeOcorrencia ;
+public $idDelegado ;
+public $idEquipe ;
 public $segredoOcorrencia;
 public $statusOcorrencia ;
 
 	
-	function __construct($estadoOcorrencia, $cidadeOcorrencia, $ruaOcorrencia, $numeroCasaOcorrencia,$bairroOcorrencia, $dataOcorrencia, $horaOcorrencia, $delegadoOcorrencia, $equipeOcorrencia, $segredoOcorrencia,$statusOcorrencia ){
+	function __construct($estadoOcorrencia, $cidadeOcorrencia, $ruaOcorrencia, $numeroCasaOcorrencia,$bairroOcorrencia, $dataOcorrencia, $horaOcorrencia, $idDelegado, $idEquipe, $segredoOcorrencia,$statusOcorrencia ){
 
 		$this->estadoOcorrencia = $estadoOcorrencia;
 		$this->cidadeOcorrencia = $cidadeOcorrencia;
@@ -29,8 +28,8 @@ public $statusOcorrencia ;
 		$this->bairroOcorrencia = $bairroOcorrencia;
 		$this->dataOcorrencia = $dataOcorrencia;
 		$this->horaOcorrencia = $horaOcorrencia;
-		$this->delegadoOcorrencia = $delegadoOcorrencia;
-		$this->equipeOcorrencia  = $equipeOcorrencia;
+		$this->idDelegado = $idDelegado;
+		$this->idEquipe  = $idEquipe;
 		$this->segredoOcorrencia = $segredoOcorrencia;
 		$this->statusOcorrencia = $statusOcorrencia;
 		

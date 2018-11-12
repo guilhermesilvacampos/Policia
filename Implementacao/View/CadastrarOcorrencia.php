@@ -85,15 +85,15 @@ $tamanho = 1;
   
 <div class="form-group">
     <label for="delegado">Delegado Responsável</label>
-    <select  id="delegado" name="delegadoOcorrencia" class="form-control form-control-lg" required>
-  <option>Default select</option>
+    <select  id="delegado" name="idDelegado" class="form-control form-control-lg" required>
+  <option value="1">Delegado Amarildo</option>
 </select>
   </div>
 
   <div class="form-group">
     <label for="equipe">Equipe Envolvida</label>
-    <select  id="equipe" name="equipeOcorrencia" class="form-control form-control-lg" required>
-  <option>Default select</option>
+    <select  id="equipe" name="idEquipe" class="form-control form-control-lg" required>
+  <option value="1">Equipe Rocket</option>
 </select>
   </div>
 

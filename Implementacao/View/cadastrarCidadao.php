@@ -67,7 +67,7 @@ require_once("padrao.php");
     <td>
 <div class="form-group">
       <label for="numero">Número</label>
-    <input type="number" id="numero" name="numeroCidadao" class="form-control form-control-lg" required > 
+    <input type="number" id="numero" name="numeroCasaCidadao" class="form-control form-control-lg" required > 
 </div>
   </td>
 

@@ -1,0 +1,69 @@
+CREATE TABLE cidadao (
+ cpfCidadao char(15) not null PRIMARY KEY,
+    nomeCidadao varchar(255) not null,
+    alcunhaCidadao varchar(50) not null,
+    rgCidadao varchar(32) not null,
+    dataCidadao DATE not null,
+    nacionalidadeCidadao varchar(255) not null,
+    estadoCidadao varchar(255) not null,
+    cidadeCidadao varchar(255) not null,
+    ruaCidadao varchar(255) not null,
+    numeroCasaCidadao int not null,
+    bairroCidadao varchar(255) not null
+);
+
+
+
+
+CREATE TABLE delegado(
+ idDelegado int not null AUTO_INCREMENT PRIMARY KEY,
+    nomeDelegado varchar(255) not null
+
+);
+
+
+
+CREATE TABLE equipe(
+ idEquipe int not null AUTO_INCREMENT PRIMARY KEY,
+    nomeEquipe varchar(255) not null
+
+);
+
+
+
+CREATE TABLE ocorrencia(
+ 
+    idOcorrencia int not null AUTO_INCREMENT PRIMARY KEY,
+    estadoOcorrencia varchar(255) not null,
+    cidadeOcorrencia varchar(255) not null,
+	ruaOcorrencia varchar(255) not null,
+	numeroCasaOcorrencia int not null,
+    bairroOcorrencia varchar(255) not null,
+    dataOcorrencia DATE not null,
+    horaOcorrencia TIME not null,
+    idDelegado int not null,
+    idEquipe int not null,
+    segredoOcorrencia varchar(20) not null,
+    statusOcorrencia varchar(30) not null,
+    
+    FOREIGN KEY (idDelegado) REFERENCES delegado(idDelegado),
+    FOREIGN KEY (idEquipe) REFERENCES equipe(idEquipe)
+);
+
+
+
+create table envolvidosocorrencia(
+ idEnvolvidosOcorrencia int not null AUTO_INCREMENT PRIMARY KEY,
+    idOcorrencia int not null,
+    cpfCidadao char(15) not null,
+    
+    FOREIGN KEY (idOcorrencia) REFERENCES ocorrencia(idOcorrencia),
+    FOREIGN KEY (cpfCidadao) REFERENCES cidadao(cpfCidadao)
+
+);
+
+
+INSERT INTO `delegado`(`idDelegado`, `nomeDelegado`) VALUES (1,'Delegado Amarildo');
+
+INSERT INTO `equipe`(`idEquipe`, `nomeEquipe`) VALUES (1,'Equipe Rocket');
+
