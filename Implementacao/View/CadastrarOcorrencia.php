@@ -8,7 +8,19 @@
 
 require_once ("cabecalho.php");
 require_once("padrao.php");
+
+
+require_once("../Model/delegado.php");
+require_once("../DAO/delegadoDAO.php");
 $tamanho = 1;
+
+
+
+$delegadoDAO = new DelegadoDAO($conexao);
+
+
+$listaDelegados = $delegadoDAO->listaDelegados();
+
 ?>
 
 
@@ -86,7 +98,15 @@ $tamanho = 1;
 <div class="form-group">
     <label for="delegado">Delegado Responsável</label>
     <select  id="delegado" name="idDelegado" class="form-control form-control-lg" required>
-  <option value="1">Delegado Amarildo</option>
+      <?php
+      foreach ($listaDelegados as $delegado) {
+        ?>
+        
+ <option value="<?= $delegado->idDelegado?>"><?= $delegado->nomeDelegado?></option>
+        <?php
+      }
+      ?>
+ 
 </select>
   </div>
 

@@ -65,5 +65,7 @@ create table envolvidosocorrencia(
 
 INSERT INTO `delegado`(`idDelegado`, `nomeDelegado`) VALUES (1,'Delegado Amarildo');
 
+INSERT INTO `delegado`(`idDelegado`, `nomeDelegado`) VALUES (2,'Delegado Siqueira');
+
 INSERT INTO `equipe`(`idEquipe`, `nomeEquipe`) VALUES (1,'Equipe Rocket');
 
