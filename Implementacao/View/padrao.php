@@ -52,7 +52,6 @@ require_once("cabecalho.php");
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
-            <a href="cadastrarEvidencia.php">Cadastrar Evidência</a>
             <a href="#">Editar Evidência</a>
             <a href="#">Visualizar Evidência</a>
         </div>

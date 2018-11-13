@@ -7,6 +7,10 @@ require_once("padrao.php");
 
 	<div class="conteudo">
 
+    <div>
+        <legend><h1 class="col-md-offset-1">Cadastrar Cidadão</h1></legend>
+    </div>
+
 <form action="../Controller/adicionaCidadao.php" method="post">
 <div class="inputs">
   <div class="form-group">
@@ -23,17 +27,17 @@ require_once("padrao.php");
 
   <div class="form-group">
     <label for="rg">RG</label>
-    <input type="number" id="rg" name="rgCidadao" class="form-control form-control-lg" required >
+    <input type="number"  id="rg" name="rgCidadao" class="form-control form-control-lg" required >
   </div>
 
   <div class="form-group">
     <label for="cpf">CPF</label>
-    <input type="number" id="cpf" name="cpfCidadao" class="form-control form-control-lg" required >
+    <input type="number"  id="cpf" name="cpfCidadao" class="form-control form-control-lg" required >
   </div>
 
   <div class="form-group">
     <label for="data">Data de Nascimento</label>
-    <input type="date" id="data" name="dataCidadao" class="form-control form-control-lg" required >
+    <input type="date" id="data" placeholder="ano-mes-dia" name="dataCidadao" class="form-control form-control-lg" required >
   </div>
 
   <div class="form-group">
@@ -58,7 +62,7 @@ require_once("padrao.php");
   <div class="form-group">
     <table>
       <tr>
-        <td class="col-md-3">
+        <td class="col-md-10">
 <div class="form-group">
           <label for="rua">Rua</label>
     <input type="text" id="rua" name="ruaCidadao" class="form-control form-control-lg" required >
@@ -67,7 +71,7 @@ require_once("padrao.php");
     <td>
 <div class="form-group">
       <label for="numero">Número</label>
-    <input type="number" id="numero" name="numeroCasaCidadao" class="form-control form-control-lg" required > 
+    <input type="number" onkeyup="mascara(this, mnum);" id="numero" name="numeroCasaCidadao" class="form-control form-control-lg" required > 
 </div>
   </td>
 
@@ -130,6 +134,37 @@ require_once("padrao.php");
       });
     
     });
+
+
+
+/* Máscaras ER */
+function mascara(o,f){
+    v_obj=o
+    v_fun=f
+    setTimeout("execmascara()",1)
+}
+function execmascara(){
+    v_obj.value=v_fun(v_obj.value)
+}
+
+function mdata(v){
+    v=v.replace(/\D/g,"");                    //Remove tudo o que não é dígito
+    v=v.replace(/(\d{2})(\d)/,"$1/$2");
+    v=v.replace(/(\d{2})(\d)/,"$1/$2");
+
+    v=v.replace(/(\d{2})(\d{2})$/,"$1$2");
+    return v;
+}
+
+
+
+function mnum(v){
+    v=v.replace(/\D/g,"");                                      //Remove tudo o que não é dígito
+    return v;
+}
+
+
+
 
     </script>
 

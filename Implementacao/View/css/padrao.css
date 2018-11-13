@@ -12,17 +12,17 @@ body {
 }
 
 .avatar {
-    width: 19%;
+    width: 95px;
     border-radius: 50%;
     display: block;
 
-    margin-left: 100%;
+    margin-left: 500px;
 
     margin-right: auto;
 }
 .h{
     position: relative;
-    margin-left: 40%;
+    
     
 
   font-family: 'Alfa Slab One';

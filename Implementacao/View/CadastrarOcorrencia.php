@@ -66,7 +66,7 @@ $listaEquipe = $equipeDAO->listaEquipe();
   <div class="form-group">
     <table>
       <tr>
-        <td class="col-md-2">
+        <td class="col-md-10">
 <div class="form-group">
           <label for="rua">Rua</label>
     <input type="text" id="rua" name="ruaOcorrencia" class="form-control form-control-lg" placeholder="Digite a rua em que ocorreu o crime" required>
@@ -75,7 +75,7 @@ $listaEquipe = $equipeDAO->listaEquipe();
     <td>
 <div class="form-group">
       <label for="numero">Número</label>
-    <input type="number" id="numero" name="numeroCasaOcorrencia" class="form-control form-control-lg"  required> 
+    <input type="number" onkeyup="mascara(this, mnum);" id="numero" name="numeroCasaOcorrencia" class="form-control form-control-lg"  required> 
 </div>
   </td>
 
@@ -91,12 +91,12 @@ $listaEquipe = $equipeDAO->listaEquipe();
 
 <div class="form-group">
     <label for="data">Data do Crime</label>
-    <input type="date" id="data" name="dataOcorrencia" class="form-control form-control-lg"  >
+    <input type="date" id="data" placeholder="ano-mes-dia"  name="dataOcorrencia" class="form-control form-control-lg"  >
   </div>
 
   <div class="form-group">
     <label for="hora">Hora do Crime</label>
-    <input type="time" id="hora" name="horaOcorrencia" class="form-control form-control-lg"  >
+    <input type="time" id="hora" placeholder="hora:minuto:segundos" name="horaOcorrencia" class="form-control form-control-lg"  >
   </div>
   
 <div class="form-group">
@@ -247,6 +247,87 @@ $listaEquipe = $equipeDAO->listaEquipe();
         });
 });
     
+
+
+
+
+function mascara(o,f){
+    v_obj=o
+    v_fun=f
+    setTimeout("execmascara()",1)
+}
+function execmascara(){
+    v_obj.value=v_fun(v_obj.value)
+}
+function mcep(v){
+    v=v.replace(/\D/g,"")                    //Remove tudo o que não é dígito
+    v=v.replace(/^(\d{5})(\d)/,"$1-$2")         //Esse é tão fácil que não merece explicações
+    return v
+}
+function mtel(v){
+    v=v.replace(/\D/g,"");             //Remove tudo o que não é dígito
+    v=v.replace(/^(\d{2})(\d)/g,"($1) $2"); //Coloca parênteses em volta dos dois primeiros dígitos
+    v=v.replace(/(\d)(\d{4})$/,"$1-$2");    //Coloca hífen entre o quarto e o quinto dígitos
+    return v;
+}
+function cnpj(v){
+    v=v.replace(/\D/g,"")                           //Remove tudo o que não é dígito
+    v=v.replace(/^(\d{2})(\d)/,"$1.$2")             //Coloca ponto entre o segundo e o terceiro dígitos
+    v=v.replace(/^(\d{2})\.(\d{3})(\d)/,"$1.$2.$3") //Coloca ponto entre o quinto e o sexto dígitos
+    v=v.replace(/\.(\d{3})(\d)/,".$1/$2")           //Coloca uma barra entre o oitavo e o nono dígitos
+    v=v.replace(/(\d{4})(\d)/,"$1-$2")              //Coloca um hífen depois do bloco de quatro dígitos
+    return v
+}
+function mcpf(v){
+    v=v.replace(/\D/g,"")                    //Remove tudo o que não é dígito
+    v=v.replace(/(\d{3})(\d)/,"$1.$2")       //Coloca um ponto entre o terceiro e o quarto dígitos
+    v=v.replace(/(\d{3})(\d)/,"$1.$2")       //Coloca um ponto entre o terceiro e o quarto dígitos
+                                             //de novo (para o segundo bloco de números)
+    v=v.replace(/(\d{3})(\d{1,2})$/,"$1-$2") //Coloca um hífen entre o terceiro e o quarto dígitos
+    return v
+}
+function mdata(v){
+    v=v.replace(/\D/g,"");                    //Remove tudo o que não é dígito
+    v=v.replace(/(\d{2})(\d)/,"$1/$2");
+    v=v.replace(/(\d{2})(\d)/,"$1/$2");
+
+    v=v.replace(/(\d{2})(\d{2})$/,"$1$2");
+    return v;
+}
+function mtempo(v){
+    v=v.replace(/\D/g,"");                    //Remove tudo o que não é dígito
+    v=v.replace(/(\d{1})(\d{2})(\d{2})/,"$1:$2.$3");
+    return v;
+}
+function mhora(v){
+    v=v.replace(/\D/g,"");                    //Remove tudo o que não é dígito
+    v=v.replace(/(\d{2})(\d)/,"$1h$2");
+    return v;
+}
+function mrg(v){
+    v=v.replace(/\D/g,"");                                      //Remove tudo o que não é dígito
+        v=v.replace(/(\d)(\d{7})$/,"$1.$2");    //Coloca o . antes dos últimos 3 dígitos, e antes do verificador
+        v=v.replace(/(\d)(\d{4})$/,"$1.$2");    //Coloca o . antes dos últimos 3 dígitos, e antes do verificador
+        v=v.replace(/(\d)(\d)$/,"$1-$2");               //Coloca o - antes do último dígito
+    return v;
+}
+function mnum(v){
+    v=v.replace(/\D/g,"");                                      //Remove tudo o que não é dígito
+    return v;
+}
+function mvalor(v){
+    v=v.replace(/\D/g,"");//Remove tudo o que não é dígito
+    v=v.replace(/(\d)(\d{8})$/,"$1.$2");//coloca o ponto dos milhões
+    v=v.replace(/(\d)(\d{5})$/,"$1.$2");//coloca o ponto dos milhares
+
+    v=v.replace(/(\d)(\d{2})$/,"$1,$2");//coloca a virgula antes dos 2 últimos dígitos
+    return v;
+}
+
+
+
+
+
   </script>
 
 

@@ -9,7 +9,7 @@ if(isset($_SESSION['idOcorrencia'])){
     $idOcorrencia = $_SESSION['idOcorrencia'];
 }
 
-$idOcorrencia = 10;
+
 
 ?>
     <link href="css/cadastrarEvidencia.css" rel="stylesheet">
@@ -81,7 +81,7 @@ $idOcorrencia = 10;
 
 
                     <label for="NumeroDeSerie">Número de Série</label>
-                    <input type="number" id="NumeroDeSerie" name="numeroDeSerie" class="form-control form-control-lg"
+                    <input type="number" onkeyup="mascara(this, mnum);" id="NumeroDeSerie" name="numeroDeSerie" class="form-control form-control-lg"
                            placeholder="Digite o Número de Série da Arma" >
 
                 </div>
@@ -90,7 +90,7 @@ $idOcorrencia = 10;
 
 
                     <label for="NumeroDoCalibre">Calibre</label>
-                    <input type="number" id="NumeroDoCalibre" name="numeroDoCalibre" 
+                    <input type="number" onkeyup="mascara(this, mnum);" id="NumeroDoCalibre" name="numeroDoCalibre" 
                             class="form-control form-control-lg"
                            placeholder="Digite o Número do Calibre Da Arma" >
 
@@ -124,7 +124,7 @@ $idOcorrencia = 10;
 
 
                     <label for="NumeroDoIMEI">Número do IMEI</label>
-                    <input type="number" id="NumeroDoIMEI" name="numeroDoIMEI" class="form-control form-control-lg"
+                    <input type="number" onkeyup="mascara(this, mnum);" id="NumeroDoIMEI" name="numeroDoIMEI" class="form-control form-control-lg"
                            placeholder="Digite o Número do IMEI do Celular" >
 
                 </div>
@@ -133,7 +133,7 @@ $idOcorrencia = 10;
 
 
                     <label for="NumeroDoCelular">Número do Celular</label>
-                    <input type="number" id="NumeroDoCelular" name="numeroDoCelular" 
+                    <input type="number" onkeyup="mascara(this, mnum);" id="NumeroDoCelular" name="numeroDoCelular" 
                             class="form-control form-control-lg"
                            placeholder="Digite o Número do Celular" >
 
@@ -162,7 +162,7 @@ $idOcorrencia = 10;
 
 
                     <label for="CpfProprietario">CPF Do Proprietário</label>
-                    <input type="integer" id="CpfProprietario" name="cpfProprietario" 
+                    <input type="number"  id="CpfProprietario" name="cpfProprietario" 
                             class="form-control form-control-lg"
                            placeholder="Digite o CPF do Proprietário" >
 
@@ -250,7 +250,7 @@ $idOcorrencia = 10;
 
                 <div class="form-group">
                     <label for="chassi">Chassi</label>
-                    <input type="number" id="chassi" name="chassi" 
+                    <input type="number" onkeyup="mascara(this, mnum);" id="chassi" name="chassi" 
                             class="form-control form-control-lg"
                            placeholder="Digite o Chassi do Veículo" >
                 </div>
@@ -346,7 +346,7 @@ $idOcorrencia = 10;
 
 
                 <label for="cpfCidadao">CPF Do Cidadão</label>
-                <input type="number" id="cpfCidadao" name="cpfCidadao" class="form-control form-control-lg"
+                <input type="number"  id="cpfCidadao" name="cpfCidadao" class="form-control form-control-lg"
                        placeholder="Digite o CPF do Cidadão" required>
 
             </div>
@@ -417,6 +417,51 @@ if (document.getElementById("substancia").checked ==true) {
     
 }
 
+
+/* Máscaras ER */
+function mascara(o,f){
+    v_obj=o
+    v_fun=f
+    setTimeout("execmascara()",1)
+}
+function execmascara(){
+    v_obj.value=v_fun(v_obj.value)
+}
+function mcep(v){
+    v=v.replace(/\D/g,"")                    //Remove tudo o que não é dígito
+    v=v.replace(/^(\d{5})(\d)/,"$1-$2")         //Esse é tão fácil que não merece explicações
+    return v
+}
+function mtel(v){
+    v=v.replace(/\D/g,"");             //Remove tudo o que não é dígito
+    v=v.replace(/^(\d{2})(\d)/g,"($1) $2"); //Coloca parênteses em volta dos dois primeiros dígitos
+    v=v.replace(/(\d)(\d{4})$/,"$1-$2");    //Coloca hífen entre o quarto e o quinto dígitos
+    return v;
+}
+
+function mdata(v){
+    v=v.replace(/\D/g,"");                    //Remove tudo o que não é dígito
+    v=v.replace(/(\d{2})(\d)/,"$1/$2");
+    v=v.replace(/(\d{2})(\d)/,"$1/$2");
+
+    v=v.replace(/(\d{2})(\d{2})$/,"$1$2");
+    return v;
+}
+function mtempo(v){
+    v=v.replace(/\D/g,"");                    //Remove tudo o que não é dígito
+    v=v.replace(/(\d{1})(\d{2})(\d{2})/,"$1:$2.$3");
+    return v;
+}
+function mhora(v){
+    v=v.replace(/\D/g,"");                    //Remove tudo o que não é dígito
+    v=v.replace(/(\d{2})(\d)/,"$1:$2");
+    return v;
+}
+
+function mnum(v){
+    v=v.replace(/\D/g,"");                                      //Remove tudo o que não é dígito
+    return v;
+}
 
 
 
