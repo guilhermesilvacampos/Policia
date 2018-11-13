@@ -63,6 +63,47 @@ create table envolvidosocorrencia(
 );
 
 
+
+
+CREATE TABLE evidencia (
+    idEvidencia int not null AUTO_INCREMENT PRIMARY KEY,
+    idOcorrencia int not null,
+    tipoEvidencia varchar(20),
+    numeroDeSerie varchar(40),
+    numeroDoCalibre varchar(20),
+    fabricanteArma varchar(255),
+    modeloArma varchar(40),
+    numeroDoIMEI varchar(40),
+    numeroDoCelular varchar(40),
+    fabricanteCelular varchar(255),
+    modeloCelular varchar(40),
+    cpfProprietario varchar(15),
+    nomeObjeto varchar(40),
+    descricaoObjeto varchar(255),
+    tipoSubstancia varchar(20),
+    pesoSubstancia decimal(5,2),
+    unidadeSubstancia varchar(10),
+    embalagem varchar(20),
+    chassi varchar(20),
+    placa varchar(20),
+    anoFabricacao varchar(4),
+    anoModelo varchar(4),
+    fabricanteVeiculo varchar(255),
+    modeloVeiculo varchar(50),
+    corVeiculo varchar(40),
+    armaDoCrime varchar(50),
+    objetoSubtraido varchar(50),
+    providencia varchar(50),
+    cpfCidadao varchar(15),
+    
+    FOREIGN KEY (idOcorrencia) REFERENCES ocorrencia(idOcorrencia)
+
+
+);
+
+
+
+
 INSERT INTO `delegado`(`idDelegado`, `nomeDelegado`) VALUES (1,'Delegado Amarildo');
 
 INSERT INTO `delegado`(`idDelegado`, `nomeDelegado`) VALUES (2,'Delegado Siqueira');

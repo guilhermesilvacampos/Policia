@@ -2,10 +2,14 @@
 require_once("cabecalho.php");
 require_once("padrao.php");
 
+require_once("../Model/evidencia.php");
+require_once("../DAO/evidenciaDAO.php");
+
 if(isset($_SESSION['idOcorrencia'])){
     $idOcorrencia = $_SESSION['idOcorrencia'];
 }
 
+$idOcorrencia = 10;
 
 ?>
     <link href="css/cadastrarEvidencia.css" rel="stylesheet">
@@ -24,7 +28,7 @@ if(isset($_SESSION['idOcorrencia'])){
 <?= "id Ocorrencia: ".$idOcorrencia ?>
 
                 
-                <input type="number" id="NumeroDaOcorrencia" value="<?=$idOcorrencia?>" class="hidden form-control form-control-lg" required>
+                <input type="number" id="NumeroDaOcorrencia" name="idOcorrencia" value="<?=$idOcorrencia?>" class="hidden form-control form-control-lg" >
 
             </div>
 
@@ -36,32 +40,32 @@ if(isset($_SESSION['idOcorrencia'])){
     <legend><b>Marque as Evidências do Crime</b></legend>
 
     <div>
-        <input type="checkbox" id="arma" onchange="option();" value="arma" />
+        <input type="checkbox" id="arma" onchange="option();" name="tipoEvidencia" value="arma" />
         <label for="arma">ARMA</label>
     </div>
 
     <div>
         <input type="checkbox" id="celular" onchange="option();"
-               value="celular" />
+               name="tipoEvidencia" value="celular" />
         <label for="celular">Celular</label>
     </div>
 
     <div>
         <input type="checkbox" id="objeto" onchange="option();"
-               value="objeto" />
+               name="tipoEvidencia" value="objeto" />
         <label for="objeto">OBJETO</label>
     </div>
 
     <div>
         <input type="checkbox" id="substancia" onchange="option();"
-               value="substancia" />
+               name="tipoEvidencia" value="substancia" />
         <label for="substancia">SUBSTANCIA</label>
 
     </div>
 
     <div>
         <input type="checkbox" id="veiculo" onchange="option();"
-               value="veiculo" />
+               name="tipoEvidencia" value="veiculo" />
         <label for="veiculo">VEICULO</label>
     </div>
 
@@ -77,8 +81,8 @@ if(isset($_SESSION['idOcorrencia'])){
 
 
                     <label for="NumeroDeSerie">Número de Série</label>
-                    <input type="number" id="NumeroDeSerie" class="form-control form-control-lg"
-                           placeholder="Digite o Número de Série da Arma" required>
+                    <input type="number" id="NumeroDeSerie" name="numeroDeSerie" class="form-control form-control-lg"
+                           placeholder="Digite o Número de Série da Arma" >
 
                 </div>
 
@@ -86,26 +90,27 @@ if(isset($_SESSION['idOcorrencia'])){
 
 
                     <label for="NumeroDoCalibre">Calibre</label>
-                    <input type="number" id="NumeroDoCalibre" class="form-control form-control-lg"
-                           placeholder="Digite o Número do Calibre Da Arma" required>
+                    <input type="number" id="NumeroDoCalibre" name="numeroDoCalibre" 
+                            class="form-control form-control-lg"
+                           placeholder="Digite o Número do Calibre Da Arma" >
 
                 </div>
 
                 <div class="form-group">
 
 
-                    <label for="Fabricante">Fabricante</label>
-                    <input type="text" id="Fabricante" class="form-control form-control-lg"
-                           placeholder="Digite o Nome do Fabricante" required>
+                    <label for="FabricanteArma">Fabricante</label>
+                    <input type="text" id="FabricanteArma" name="fabricanteArma" class="form-control form-control-lg"
+                           placeholder="Digite o Nome do Fabricante" >
 
                 </div>
 
                 <div class="form-group">
 
 
-                    <label for="Modelo">Modelo</label>
-                    <input type="text" id="Modelo" class="form-control form-control-lg"
-                           placeholder="Digite o Modelo da Arma" required>
+                    <label for="ModeloArma">Modelo</label>
+                    <input type="text" id="ModeloArma" name="modeloArma" class="form-control form-control-lg"
+                           placeholder="Digite o Modelo da Arma" >
 
                 </div>
 
@@ -119,8 +124,8 @@ if(isset($_SESSION['idOcorrencia'])){
 
 
                     <label for="NumeroDoIMEI">Número do IMEI</label>
-                    <input type="number" id="NumeroDoIMEI" class="form-control form-control-lg"
-                           placeholder="Digite o Número do IMEI do Celular" required>
+                    <input type="number" id="NumeroDoIMEI" name="numeroDoIMEI" class="form-control form-control-lg"
+                           placeholder="Digite o Número do IMEI do Celular" >
 
                 </div>
 
@@ -128,8 +133,9 @@ if(isset($_SESSION['idOcorrencia'])){
 
 
                     <label for="NumeroDoCelular">Número do Celular</label>
-                    <input type="number" id="NumeroDoCelular" class="form-control form-control-lg"
-                           placeholder="Digite o Número do Celular" required>
+                    <input type="number" id="NumeroDoCelular" name="numeroDoCelular" 
+                            class="form-control form-control-lg"
+                           placeholder="Digite o Número do Celular" >
 
                 </div>
 
@@ -137,8 +143,9 @@ if(isset($_SESSION['idOcorrencia'])){
 
 
                     <label for="fabricanteCelular">Fabricante do Celular</label>
-                    <input type="text" id="fabricanteCelular" class="form-control form-control-lg"
-                           placeholder="Digite o Nome do Fabricante do Celular" required>
+                    <input type="text" id="fabricanteCelular" name="fabricanteCelular" 
+                            class="form-control form-control-lg"
+                           placeholder="Digite o Nome do Fabricante do Celular" >
 
                 </div>
 
@@ -146,17 +153,18 @@ if(isset($_SESSION['idOcorrencia'])){
 
 
                     <label for="ModeloCelular">Modelo do Celular</label>
-                    <input type="text" id="ModeloCelular" class="form-control form-control-lg"
-                           placeholder="Digite o Modelo do Celular" required>
+                    <input type="text" id="ModeloCelular" name="modeloCelular" class="form-control form-control-lg"
+                           placeholder="Digite o Modelo do Celular" >
 
                 </div>
 
                 <div class="form-group">
 
 
-                    <label for="NumeroDaOcorrencia">CPF Do Proprietário</label>
-                    <input type="integer" id="NumeroDaOcorrencia" class="form-control form-control-lg"
-                           placeholder="Digite o CPF do Proprietário" required>
+                    <label for="CpfProprietario">CPF Do Proprietário</label>
+                    <input type="integer" id="CpfProprietario" name="cpfProprietario" 
+                            class="form-control form-control-lg"
+                           placeholder="Digite o CPF do Proprietário" >
 
                 </div>
             </div>
@@ -167,8 +175,9 @@ if(isset($_SESSION['idOcorrencia'])){
 
 
                     <label for="nomeObjeto">Nome do Objeto</label>
-                    <input type="text" id="nomeObjeto" class="form-control form-control-lg"
-                           placeholder="Digite o Nome do Objeto" required>
+                    <input type="text" id="nomeObjeto" name="nomeObjeto"
+                             class="form-control form-control-lg"
+                           placeholder="Digite o Nome do Objeto" >
 
                 </div>
 
@@ -176,8 +185,9 @@ if(isset($_SESSION['idOcorrencia'])){
 
 
                     <label for="descricaoObjeto">Descrição do Objeto</label>
-                    <textarea type="text" id="descricaoObjeto" class="form-control form-control-lg"
-                           placeholder="Descreva o Objeto" required> </textarea>
+                    <textarea type="text" id="descricaoObjeto" name="descricaoObjeto"
+                             class="form-control form-control-lg"
+                           placeholder="Descreva o Objeto" > </textarea>
 
                 </div>
 
@@ -189,8 +199,9 @@ if(isset($_SESSION['idOcorrencia'])){
 
                 <div class="form-group">
                     <label for="tipoSubstancia">Tipo de Substância</label>
-                    <input type="text" id="tipoSubstancia" class="form-control form-control-lg"
-                           placeholder="Digite o Tipo de Substancia" required>
+                    <input type="text" id="tipoSubstancia" name="tipoSubstancia"
+                             class="form-control form-control-lg"
+                           placeholder="Digite o Tipo de Substancia" >
                 </div>
 
                 <div class="form-group col-md-offset-1">
@@ -199,8 +210,9 @@ if(isset($_SESSION['idOcorrencia'])){
                             <td class="col-md-auto">
 
                                 <label for="pesoSubstancia">Peso da Substância</label>
-                                <input type="number" id="pesoSubstancia" class="form-control form-control-lg"
-                                       placeholder="Digite o Peso da Substancia" required>
+                                <input type="number" id="pesoSubstancia" name="pesoSubstancia"
+                                         class="form-control form-control-lg"
+                                       placeholder="Digite o Peso da Substancia" >
 
 
                             </td>
@@ -208,9 +220,10 @@ if(isset($_SESSION['idOcorrencia'])){
                             <td class="col-md-auto">
 
                                 <label for="unidadeSubstancia">Unidade de Medida</label>
-                                <select id="unidadeSubstancia" class="form-control form-control-lg" required>
+                                <select id="unidadeSubstancia" name="unidadeSubstancia"
+                                         class="form-control form-control-lg" >
                                     <option value="">Selecione Uma Opção Abaixo</option>
-                                    <option value="mg">MG</option>
+                                    <option value="Mg">MG</option>
                                     <option value="Kg">KG</option>
 
                             </td>
@@ -220,7 +233,8 @@ if(isset($_SESSION['idOcorrencia'])){
 
                 <div class="form-group">
                     <label for="embalagem">Embalagem</label>
-                    <select id="embalagem" class="form-control form-control-lg" required>
+                    <select id="embalagem" name="embalagem"
+                     class="form-control form-control-lg" >
                         <option value="">Selecione Uma Opção Abaixo</option>
                         <option value="pacote">PACOTE</option>
                         <option value="capsula">CÁPSULA</option>
@@ -236,22 +250,22 @@ if(isset($_SESSION['idOcorrencia'])){
 
                 <div class="form-group">
                     <label for="chassi">Chassi</label>
-                    <input type="number" id="chassi" class="form-control form-control-lg"
-                           placeholder="Digite o Chassi do Veículo" required>
+                    <input type="number" id="chassi" name="chassi" 
+                            class="form-control form-control-lg"
+                           placeholder="Digite o Chassi do Veículo" >
                 </div>
 
                 <div class="form-group">
                     <label for="placa">Placa</label>
-                    <input type="text" id="placa" class="form-control form-control-lg"
-                           placeholder="Digite a Placa do Veículo" required>
+                    <input type="text" id="placa" name="placa" class="form-control form-control-lg"
+                           placeholder="Digite a Placa do Veículo" >
                 </div>
 
                 <div class="form-group">
                     <?php $years = range(1900, strftime("%Y", time()) + 2); ?>
-                    <label for="placa">Ano de Fabricação</label>
-                    <select id="placa" class="form-control form-control-lg"
-                            required>
-                        <option>Selecione Uma Opção Abaixo</option>
+                    <label for="anoFabricacao">Ano de Fabricação</label>
+                    <select id="anoFabricacao" name="anoFabricacao" 
+                    class="form-control form-control-lg" >
                         <?php foreach ($years as $year) : ?>
                             <option value="<?php echo $year; ?>"><?php echo $year; ?></option>
                         <?php endforeach; ?>
@@ -262,10 +276,8 @@ if(isset($_SESSION['idOcorrencia'])){
 
                 <div class="form-group">
                     <?php $years = range(1900, strftime("%Y", time()) + 2); ?>
-                    <label for="placa">Ano do Modelo</label>
-                    <select id="placa" class="form-control form-control-lg"
-                            required>
-                        <option>Selecione Uma Opção Abaixo</option>
+                    <label for="anoModelo">Ano do Modelo</label>
+                    <select id="anoModelo" name="anoModelo" class="form-control form-control-lg">
                         <?php foreach ($years as $year) : ?>
                             <option value="<?php echo $year; ?>"><?php echo $year; ?></option>
                         <?php endforeach; ?>
@@ -278,8 +290,8 @@ if(isset($_SESSION['idOcorrencia'])){
 
 
                     <label for="fabricanteVeiculo">Fabricante do Veículo</label>
-                    <input type="text" id="fabricanteVeiculo" class="form-control form-control-lg"
-                           placeholder="Digite o Nome do Fabricante do Veículo" required>
+                    <input type="text" id="fabricanteVeiculo" name="fabricanteVeiculo" class="form-control form-control-lg"
+                           placeholder="Digite o Nome do Fabricante do Veículo" >
 
                 </div>
 
@@ -287,8 +299,8 @@ if(isset($_SESSION['idOcorrencia'])){
 
 
                     <label for="ModeloVeiculo">Modelo do Veículo</label>
-                    <input type="text" id="ModeloVeiculo" class="form-control form-control-lg"
-                           placeholder="Digite o Modelo do Veículo" required>
+                    <input type="text" id="ModeloVeiculo" name="modeloVeiculo" class="form-control form-control-lg"
+                           placeholder="Digite o Modelo do Veículo" >
 
                 </div>
 
@@ -296,8 +308,8 @@ if(isset($_SESSION['idOcorrencia'])){
 
 
                     <label for="CorVeiculo">Cor do Veículo</label>
-                    <input type="text" id="CorVeiculo" class="form-control form-control-lg"
-                           placeholder="Digite a Cor do Veículo" required>
+                    <input type="text" id="CorVeiculo" name="corVeiculo" class="form-control form-control-lg"
+                           placeholder="Digite a Cor do Veículo" >
 
                 </div>
 
@@ -309,14 +321,14 @@ if(isset($_SESSION['idOcorrencia'])){
 
 
                     <label for="armaDoCrime">Arma do Crime</label>
-                    <input type="text" id="armaDoCrime" class="form-control form-control-lg"
+                    <input type="text" id="armaDoCrime" name="armaDoCrime" class="form-control form-control-lg"
                            placeholder="Digite o Nome da Arma do Crime" required>
 
                 </div>
 
             <div class="form-group">
-                <label for="objeto">Objeto Subtraído</label>
-                <select id="objeto" class="form-control form-control-lg" required>
+                <label for="objetoSubtarido">Objeto Subtraído</label>
+                <select id="objetoSubtarido" name="objetoSubtarido" class="form-control form-control-lg" required>
                     <option value="">Selecione Uma Opção Abaixo</option>
                     <option value="1">Default select</option>
                 </select>
@@ -324,7 +336,7 @@ if(isset($_SESSION['idOcorrencia'])){
 
             <div class="form-group">
                 <label for="providencia">Providência</label>
-                <select id="providencia" class="form-control form-control-lg" required>
+                <select id="providencia" name="providencia" class="form-control form-control-lg" required>
                     <option value="">Selecione Uma Opção Abaixo</option>
                     <option value="1">Default select</option>
                 </select>
@@ -333,8 +345,8 @@ if(isset($_SESSION['idOcorrencia'])){
             <div class="form-group">
 
 
-                <label for="NumeroDaOcorrencia">CPF Do Cidadão</label>
-                <input type="number" id="NumeroDaOcorrencia" class="form-control form-control-lg"
+                <label for="cpfCidadao">CPF Do Cidadão</label>
+                <input type="number" id="cpfCidadao" name="cpfCidadao" class="form-control form-control-lg"
                        placeholder="Digite o CPF do Cidadão" required>
 
             </div>
