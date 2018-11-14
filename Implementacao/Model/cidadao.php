@@ -40,6 +40,14 @@ class Cidadao {
 	}
 
 
+	
+
+
+
+
+	
+
+
 
 	function __toString(){
 		return $this->nomeCidadao ." , " . $this->cpfCidadao;

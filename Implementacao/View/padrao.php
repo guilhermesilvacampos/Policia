@@ -36,7 +36,7 @@ require_once("cabecalho.php");
         </button>
         <div class="dropdown-container">
             <a href="cadastrarCidadao.php">Cadastrar Cidadão</a>
-            <a href="#">Visualizar Cidadãos</a>
+            <a href="visualizarCidadao.php">Visualizar Cidadãos</a>
         </div>
         <button class="dropdown-btn"><i class="fas fa-exclamation-triangle"></i>Ocorrência
             <i class="fa fa-caret-down"></i>

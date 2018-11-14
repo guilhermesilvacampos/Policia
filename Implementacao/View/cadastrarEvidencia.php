@@ -9,7 +9,7 @@ if(isset($_SESSION['idOcorrencia'])){
     $idOcorrencia = $_SESSION['idOcorrencia'];
 }
 
-$idOcorrencia = 1;
+
 
 ?>
     <link href="css/cadastrarEvidencia.css" rel="stylesheet">
@@ -327,18 +327,18 @@ $idOcorrencia = 1;
                 </div>
 
             <div class="form-group">
-                <label for="objetoSubtarido">Objeto Subtraído</label>
-                <select id="objetoSubtarido" name="objetoSubtraido" class="form-control form-control-lg" required>
-                    <option value="">Selecione Uma Opção Abaixo</option>
-                    <option value="1">Default select</option>
-                </select>
+                <label for="objetoSubtraido">Objeto Subtraído</label>
+                <input type="text" id="objetoSubtraido" name="objetoSubtraido" class="form-control form-control-lg"
+                           placeholder="Digite o Nome do Objeto Subtraido" required>
             </div>
 
             <div class="form-group">
                 <label for="providencia">Providência</label>
                 <select id="providencia" name="providencia" class="form-control form-control-lg" required>
-                    <option value="">Selecione Uma Opção Abaixo</option>
-                    <option value="1">Default select</option>
+                    <option value="apreendido">Apreendido</option>
+                    <option value="em busca">Em Busca</option>
+                    <option value="a apurar">A Apurar</option>
+                    
                 </select>
             </div>
 
