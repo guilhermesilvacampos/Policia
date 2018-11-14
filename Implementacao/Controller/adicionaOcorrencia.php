@@ -31,7 +31,7 @@ $_POST['segredoOcorrencia'] = (isset($_POST['segredoOcorrencia']) ) ? "true" : "
 
 
 
-$ocorrencia = new Ocorrencia($_POST ['estadoOcorrencia'], $_POST ['cidadeOcorrencia'], $_POST ['ruaOcorrencia'], $_POST ['numeroCasaOcorrencia'],  $_POST ['bairroOcorrencia'], $_POST ['dataOcorrencia'], $_POST ['horaOcorrencia'], $_POST ['idDelegado'], $_POST ['idEquipe'], $_POST['segredoOcorrencia'], $_POST ['statusOcorrencia']);
+$ocorrencia = new Ocorrencia($_POST ['estadoOcorrencia'], $_POST ['cidadeOcorrencia'], $_POST ['ruaOcorrencia'], $_POST ['numeroCasaOcorrencia'],  $_POST ['bairroOcorrencia'], $_POST ['dataOcorrencia'], $_POST ['horaOcorrencia'], $_POST ['idDelegado'], $_POST['segredoOcorrencia'], $_POST ['statusOcorrencia']);
 
 
 $ocorrenciaDAO = new OcorrenciaDAO($conexao);
@@ -59,6 +59,17 @@ if($ocorrenciaDAO->insereOcorrencia($ocorrencia)){
 	}
 
 }
+
+foreach ($_POST ['policiaisEnvolvidosArray'] as $idPolicial) {
+		if($ocorrenciaDAO->insereEquipe($idUltimaOcorrencia1,$idPolicial)){
+			$inseriuNaTabela = true;
+		}else{
+			$inseriuNaTabela = false;
+		}
+
+	}
+
+
 
 
  if($inseriuNaTabela){ ?>

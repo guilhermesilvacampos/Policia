@@ -42,12 +42,11 @@ CREATE TABLE ocorrencia(
     dataOcorrencia DATE not null,
     horaOcorrencia TIME not null,
     idDelegado int not null,
-    idEquipe int not null,
     segredoOcorrencia varchar(20) not null,
     statusOcorrencia varchar(30) not null,
     
-    FOREIGN KEY (idDelegado) REFERENCES delegado(idDelegado),
-    FOREIGN KEY (idEquipe) REFERENCES equipe(idEquipe)
+    FOREIGN KEY (idDelegado) REFERENCES delegado(idDelegado)
+    
 );
 
 
@@ -98,6 +97,17 @@ CREATE TABLE evidencia (
     
     FOREIGN KEY (idOcorrencia) REFERENCES ocorrencia(idOcorrencia)
 
+
+);
+
+
+CREATE TABLE equipeocorrencia(
+     idEquipeOcorrencia int not null AUTO_INCREMENT PRIMARY KEY,
+    idOcorrencia int not null,
+    idEquipe int not null,
+    
+    FOREIGN KEY (idOcorrencia) REFERENCES ocorrencia(idOcorrencia),
+    FOREIGN KEY (idEquipe) REFERENCES equipe(idEquipe)
 
 );
 

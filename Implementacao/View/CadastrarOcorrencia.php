@@ -112,27 +112,26 @@ $listaEquipe = $equipeDAO->listaEquipe();
       ?>
  
 </select>
+
   </div>
 
-  <div class="form-group">
-    <label for="equipe">Equipe Envolvida</label>
-    <select  id="equipe" name="idEquipe" class="form-control form-control-lg" required>
-  <?php
-      foreach ($listaEquipe as $equipe) {
-        ?>
-        
- <option value="<?= $equipe->idEquipe?>"><?= $equipe->nomeEquipe?></option>
-        <?php
-      }
-      ?>
-</select>
-  </div>
-
-  <div>
+ <div>
         <input type="checkbox" name="segredoOcorrencia" id="segredo" value="true" />
         <label for="segredo">Segredo de Justiça</label>
     </div>
 
+
+  <legend id="legend1"> <h2><b>Policiais Envolvidos</b></h2></legend>
+    <br>
+
+<input type="button" id="add_field2" value="Inserir Policiais Envolvidos" class="btn btn-primary btn btn-lg">
+
+  <div id="listas1">
+    
+  </div>
+
+
+ 
     <div class="form-group">
     
     <input  id="status" name="statusOcorrencia" value="ativa" class=" hidden form-control form-control-lg" required> </input>
@@ -155,7 +154,8 @@ $listaEquipe = $equipeDAO->listaEquipe();
     <input type="button" id="add_field" value="Inserir Pessoas Envolvidas" class="btn btn-primary btn btn-lg">
 
 
-<div id="listas" class="form-group">
+
+<div id="listas2" class="form-group">
    <br>
 </div>
 
@@ -226,7 +226,7 @@ $listaEquipe = $equipeDAO->listaEquipe();
                 e.preventDefault();     //prevenir novos clicks
                 if (x < campos_max) {
 
-                        $('#listas').append('<div>\
+                        $('#listas2').append('<div>\
       <label for="pessoa">Pessoa Envolvida</label>\
     <input type="number" id="pessoa"  name="pessoasEnvolvidasArray[]" class="form-control form-control-lg" \
     placeholder="Digite o CPF do envolvido" required>\
@@ -238,16 +238,53 @@ $listaEquipe = $equipeDAO->listaEquipe();
 
                 }
         });
+
  
         // Remover o div anterior
-        $('#listas').on("click",".remover_campo",function(e) {
+        $('#listas2').on("click",".remover_campo",function(e) {
                 e.preventDefault();
                 $(this).parent('div').remove();
                 x--;
         });
 });
     
+ $(document).ready(function() {
+        var campos_max          = 10;   //max de 10 campos
+        var x = 1; // campos iniciais
+        
+        
+        $('#add_field2').click (function(e) {
+                e.preventDefault();     //prevenir novos clicks
+                if (x < campos_max) {
 
+                        $('#listas1').append(' <div class="form-group">\
+    <label for="equipe">Equipe Envolvida</label>\
+    <select  id="equipe" name="policiaisEnvolvidosArray[]" class="form-control form-control-lg" required>\
+  <?php
+      foreach ($listaEquipe as $equipe) {
+        ?>\
+        \
+ <option value="<?= $equipe->idEquipe?>"><?= $equipe->nomeEquipe?></option>\
+        <?php
+      }
+      ?>\
+</select>\
+<a href="#" class="remover_campo">Remover</a>\
+  </div>');
+                       
+                        x++;
+                         
+
+                }
+        });
+ 
+        // Remover o div anterior
+        $('#listas1').on("click",".remover_campo",function(e) {
+                e.preventDefault();
+                $(this).parent('div').remove();
+                x--;
+        });
+});
 
 
 

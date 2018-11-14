@@ -5,76 +5,91 @@ require_once("../DAO/evidenciaDAO.php");
 
  session_destroy();
 
+if($_POST ['numeroDeSerie']== ""){
+	 $_POST ['numeroDeSerie'] = "Indefinido";
+}
 
-if(isset( $_POST ['numeroDoIMEI'])){
+if($_POST ['numeroDoCalibre'] == ""){
+	 $_POST ['numeroDoCalibre'] = "Indefinido";
+}
+
+if( $_POST ['fabricanteArma'] == ""){
+	 $_POST ['fabricanteArma'] = "Indefinido";
+}
+
+if( $_POST ['modeloArma'] == ""){
+	 $_POST ['modeloArma'] = "Indefinido";
+}
+
+if( $_POST ['numeroDoIMEI'] == ""){
 	 $_POST ['numeroDoIMEI'] = "Indefinido";
 }
 
-if(isset( $_POST ['numeroDoCelular'])){
+if( $_POST ['numeroDoCelular'] == ""){
 	 $_POST ['numeroDoCelular'] = "Indefinido";
 }
 
-if(isset( $_POST ['fabricanteCelular'])){
+if( $_POST ['fabricanteCelular'] == ""){
 	 $_POST ['fabricanteCelular'] = "Indefinido";
 }
 
-if(isset( $_POST ['modeloCelular'])){
+if($_POST ['modeloCelular'] == ""){
 	 $_POST ['modeloCelular'] = "Indefinido";
 }
 
-if(isset( $_POST ['cpfProprietario'])){
+if( $_POST ['cpfProprietario'] == ""){
 	 $_POST ['cpfProprietario'] = "Indefinido";
 }
 
-if(isset( $_POST ['nomeObjeto'])){
+if( $_POST ['nomeObjeto'] == ""){
 	 $_POST ['nomeObjeto'] = "Indefinido";
 }
 
-if(isset( $_POST ['descricaoObjeto'])){
+if($_POST ['descricaoObjeto'] == " "){
 	 $_POST ['descricaoObjeto'] = "Indefinido";
 }
 
-if(isset( $_POST ['tipoSubstancia'])){
+if( $_POST ['tipoSubstancia'] == ""){
 	 $_POST ['tipoSubstancia'] = "Indefinido";
 }
 
-if(isset( $_POST ['pesoSubstancia'])){
-	 $_POST ['pesoSubstancia'] = 999.9;
+if( $_POST ['pesoSubstancia'] == ""){
+	 $_POST ['pesoSubstancia'] = 000.0;
 }
 
-if(isset( $_POST ['unidadeSubstancia'])){
+if( $_POST ['unidadeSubstancia'] == ""){
 	 $_POST ['unidadeSubstancia'] = "Indefinido";
 }
 
-if(isset( $_POST ['embalagem'])){
+if( $_POST ['embalagem'] == ""){
 	 $_POST ['embalagem'] = "Indefinido";
 }
 
-if(isset( $_POST ['chassi'])){
+if( $_POST ['chassi'] == ""){
 	 $_POST ['chassi'] = "Indefinido";
 }
 
-if(isset( $_POST ['placa'])){
+if( $_POST ['placa'] == ""){
 	 $_POST ['placa'] = "Indefinido";
 }
 
-if(isset( $_POST ['anoFabricacao'])){
-	 $_POST ['anoFabricacao'] = 9999;
+if( $_POST ['anoFabricacao'] == 1900){
+	 $_POST ['anoFabricacao'] = 0000;
 }
 
-if(isset( $_POST ['anoModelo'])){
-	 $_POST ['anoModelo'] = 9999;
+if($_POST ['anoModelo'] == 1900){
+	 $_POST ['anoModelo'] = 0000;
 }
 
-if(isset( $_POST ['fabricanteVeiculo'])){
+if($_POST ['fabricanteVeiculo'] == ""){
 	 $_POST ['fabricanteVeiculo'] = "Indefinido";
 }
 
-if(isset( $_POST ['modeloVeiculo'])){
+if( $_POST ['modeloVeiculo'] == ""){
 	 $_POST ['modeloVeiculo'] = "Indefinido";
 }
 
-if(isset( $_POST ['corVeiculo'])){
+if( $_POST ['corVeiculo'] == ""){
 	 $_POST ['corVeiculo'] = "Indefinido";
 }
 
@@ -86,7 +101,6 @@ $evidencia = new Evidencia($_POST ['idOcorrencia'], $_POST ['tipoEvidencia'], $_
     $_POST ['unidadeSubstancia'], $_POST ['embalagem'], $_POST ['chassi'], $_POST ['placa'], $_POST ['anoFabricacao'], 
     $_POST ['anoModelo'], $_POST ['fabricanteVeiculo'], $_POST ['modeloVeiculo'], $_POST ['corVeiculo'], 
     $_POST ['armaDoCrime'], $_POST ['objetoSubtraido'], $_POST ['providencia'], $_POST ['cpfCidadao'] );
-
 
 
 $evidenciaDAO = new EvidenciaDAO($conexao);

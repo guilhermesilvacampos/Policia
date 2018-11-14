@@ -36,40 +36,35 @@ require_once("cabecalho.php");
         </button>
         <div class="dropdown-container">
             <a href="cadastrarCidadao.php">Cadastrar Cidadão</a>
-            <a href="#">Editar Cidadão</a>
-            <a href="#">Visualizar Cidadão</a>
+            <a href="#">Visualizar Cidadãos</a>
         </div>
         <button class="dropdown-btn"><i class="fas fa-exclamation-triangle"></i>Ocorrência
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
             <a href="cadastrarOcorrencia.php">Cadastrar Ocorrência</a>
-            <a href="#">Editar Ocorrência</a>
-            <a href="#">Visualizar Ocorrência</a>
+            <a href="#">Visualizar Ocorrências</a>
         </div>
 
         <button class="dropdown-btn"><i class="fas fa-user-secret"></i>Evidência
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
-            <a href="#">Editar Evidência</a>
-            <a href="#">Visualizar Evidência</a>
+            <a href="#">Visualizar Evidências</a>
         </div>
-        <button class="dropdown-btn"><i class="fas fa-id-card-alt"></i>Funcionários
+        <button class="dropdown-btn"><i class="fas fa-id-card-alt"></i>Equipe
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
-            <a href="#">Cadastrar Funcionário</a>
-            <a href="#">Editar Funcionário</a>
-            <a href="#">Visualizar Funcionário</a>
+            <a href="#">Cadastrar Policial</a>
+            <a href="#">Visualizar Equipe</a>
         </div>
         <button class="dropdown-btn"><i class="fas fa-map-marker-alt"></i>Delegacia
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
             <a href="#">Cadastrar Delegacia</a>
-            <a href="#">Editar Delegacia</a>
-            <a href="#">Excluir Delegacia</a>
+            <a href="#">Visualizar Delegacias</a>
         </div>
         <button class="dropdown-btn"> <i class="far fa-file-alt"></i>Relatórios
             <i class="fa fa-caret-down"></i>
