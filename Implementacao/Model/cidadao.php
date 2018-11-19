@@ -15,7 +15,7 @@ class Cidadao {
 	public $ruaCidadao;
 	public $numeroCasaCidadao;
 	public $bairroCidadao;
-     
+        public $abc;
                 
 
 
