@@ -51,6 +51,7 @@ CREATE TABLE ocorrencia(
 
 
 
+
 create table envolvidosocorrencia(
  idEnvolvidosOcorrencia int not null AUTO_INCREMENT PRIMARY KEY,
     idOcorrencia int not null,
@@ -111,6 +112,25 @@ CREATE TABLE equipeocorrencia(
 
 );
 
+CREATE TABLE `usuarios` (
+  `usuarioId` smallint(4) NOT NULL auto_increment,
+  `usuarioNome` text collate utf8_unicode_ci NOT NULL,
+  `usuarioSenha` text collate utf8_unicode_ci NOT NULL,
+  `usurioEmail` text collate utf8_unicode_ci NOT NULL,
+  `usuarioNivel` text collate utf8_unicode_ci NOT NULL,
+  PRIMARY KEY  (`usuarioId`)
+);
+
+DROP TABLE IF EXISTS `usuarionivel`;
+
+CREATE TABLE `usuarionivel` (
+  `nivelId` smallint(4) NOT NULL auto_increment,
+  `nivelNome` text collate utf8_unicode_ci NOT NULL,
+  PRIMARY KEY  (`nivelId`)
+);
+
+
+
 
 
 
@@ -121,4 +141,6 @@ INSERT INTO `delegado`(`idDelegado`, `nomeDelegado`) VALUES (2,'Delegado Siqueir
 INSERT INTO `equipe`(`idEquipe`, `nomeEquipe`) VALUES (1,'Equipe Rocket');
 
 INSERT INTO `equipe`(`idEquipe`, `nomeEquipe`) VALUES (2,'Equipe #VemProFut');
+
+
 

@@ -23,9 +23,6 @@ return mysqli_query($this->conexao,$query);
 }
 
 
-
-
-
 function listaCidadao(){
 
 
@@ -35,12 +32,8 @@ function listaCidadao(){
 while($cidadao_atual = mysqli_fetch_assoc($resultado)){
 	
 	
-	
-	
 		$cidadao = new Cidadao($cidadao_atual['cpfCidadao'],$cidadao_atual['nomeCidadao'],$cidadao_atual['alcunhaCidadao'] ,$cidadao_atual['rgCidadao'],$cidadao_atual['dataCidadao'], $cidadao_atual['nacionalidadeCidadao'],$cidadao_atual['estadoCidadao'],$cidadao_atual['cidadeCidadao'],$cidadao_atual['ruaCidadao'],$cidadao_atual['numeroCasaCidadao'],$cidadao_atual['bairroCidadao']);
-		
-	
-	
+			
 	
 	
 	array_push($array,$cidadao);
