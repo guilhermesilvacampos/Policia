@@ -1,0 +1,30 @@
+.conteudo{
+
+   margin-left: 245px;
+    margin-top: 20px;
+    margin-right: 10px;
+    border: solid;
+    border-width: thin;
+     border-color: #3071a9;
+
+}
+
+
+#table1{
+    margin-right: 15%;
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+
+
+#td1, #th1 {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+#tr1:nth-child(even) {
+    background-color: #dddddd;
+}

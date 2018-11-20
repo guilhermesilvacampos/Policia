@@ -43,7 +43,7 @@ require_once("cabecalho.php");
         </button>
         <div class="dropdown-container">
             <a href="cadastrarOcorrencia.php">Cadastrar Ocorrência</a>
-            <a href="#">Visualizar Ocorrências</a>
+            <a href="visualizarOcorrencia.php">Visualizar Ocorrências</a>
         </div>
 
         <button class="dropdown-btn"><i class="fas fa-user-secret"></i>Evidência
