@@ -17,14 +17,9 @@ function listaDelegados(){
 	$resultado = mysqli_query($this->conexao,"select idDelegado, nomeDelegado from delegado");
 	
 while($delegado_atual = mysqli_fetch_assoc($resultado)){
-	
-	
-	
+
 	
 		$delegado = new Delegado($delegado_atual['idDelegado'],$delegado_atual['nomeDelegado']);
-		
-	
-	
 	
 	
 	array_push($array,$delegado);
