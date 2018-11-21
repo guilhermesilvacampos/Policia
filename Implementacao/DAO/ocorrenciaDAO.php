@@ -33,9 +33,9 @@ $resultado = mysqli_fetch_assoc($query);
 
 
 
-function insereEnvolvido($idUltimaOcorrencia,$cpfEnvolvido){
+function insereEnvolvido($idUltimaOcorrencia,$cpfEnvolvido,$tipoEnvolvimento){
 	
-$query = "INSERT into envolvidosocorrencia (idOcorrencia,cpfCidadao) values ({$idUltimaOcorrencia},'{$cpfEnvolvido}')";
+$query = "INSERT into envolvidosocorrencia (idOcorrencia,cpfCidadao,tipoEnvolvimento) values ({$idUltimaOcorrencia},'{$cpfEnvolvido}','{$tipoEnvolvimento}')";
 
 	return mysqli_query($this->conexao,$query);
 }
@@ -56,7 +56,7 @@ function listaOcorrencia(){
 
 
 	$array = array();
-	$resultado = mysqli_query($this->conexao,"SELECT DISTINCT oc.estadoOcorrencia,oc.cidadeOcorrencia,oc.ruaOcorrencia,oc.numeroCasaOcorrencia,oc.bairroOcorrencia,oc.dataOcorrencia,oc.horaOcorrencia,oc.segredoOcorrencia,oc.statusOcorrencia, de.nomeDelegado, ci.nomeCidadao 
+	$resultado = mysqli_query($this->conexao,"SELECT DISTINCT oc.*, de.nomeDelegado, ci.nomeCidadao, en.tipoEnvolvimento 
 		from ocorrencia as oc
 	    join delegado as de on oc.idDelegado = de.idDelegado
 	    join envolvidosocorrencia as en on oc.idOcorrencia = en.idOcorrencia
@@ -66,7 +66,7 @@ while($ocorrencia_atual = mysqli_fetch_assoc($resultado)){
 
 	
 
-	$ocorrencia = new OcorrenciaBusca($ocorrencia_atual['estadoOcorrencia'],$ocorrencia_atual['cidadeOcorrencia'], $ocorrencia_atual['ruaOcorrencia'],$ocorrencia_atual['numeroCasaOcorrencia'],$ocorrencia_atual['bairroOcorrencia'],$ocorrencia_atual['dataOcorrencia'],$ocorrencia_atual['horaOcorrencia'],$ocorrencia_atual['segredoOcorrencia'],$ocorrencia_atual['statusOcorrencia'],$ocorrencia_atual['nomeCidadao'],$ocorrencia_atual['nomeDelegado']);
+	$ocorrencia = new OcorrenciaBusca($ocorrencia_atual['idOcorrencia'],$ocorrencia_atual['estadoOcorrencia'],$ocorrencia_atual['cidadeOcorrencia'], $ocorrencia_atual['ruaOcorrencia'],$ocorrencia_atual['numeroCasaOcorrencia'],$ocorrencia_atual['bairroOcorrencia'],$ocorrencia_atual['dataOcorrencia'],$ocorrencia_atual['horaOcorrencia'],$ocorrencia_atual['segredoOcorrencia'],$ocorrencia_atual['statusOcorrencia'],$ocorrencia_atual['nomeCidadao'],$ocorrencia_atual['nomeDelegado'],$ocorrencia_atual['tipoEnvolvimento']);
 
 	array_push($array,$ocorrencia);
 }

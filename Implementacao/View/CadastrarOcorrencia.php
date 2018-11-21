@@ -172,6 +172,14 @@ $listaEquipe = $equipeDAO->listaEquipe();
 </div>
 
 
+
+
+
+
+
+
+
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js" type="text/javascript"></script>
   <script type="text/javascript"> 
     
@@ -230,6 +238,14 @@ $listaEquipe = $equipeDAO->listaEquipe();
       <label for="pessoa">Pessoa Envolvida</label>\
     <input type="number" id="pessoa"  name="pessoasEnvolvidasArray[]" class="form-control form-control-lg" \
     placeholder="Digite o CPF do envolvido" required>\
+    <div class="form-group">\
+                <label for="tipoEnvolvimento">Envolvimento</label>\
+                <select id="tipoEnvolvimento" name="tipoEnvolvimentoArray[]" class="form-control form-control-lg" required>\
+                    <option value="vitima">Vítima</option>\
+                    <option value="testemunha">Testemunha</option>\
+                    <option value="criminoso">Criminoso</option>\
+                </select>\
+            </div>\
     <a href="#" class="remover_campo">Remover</a>\
     </div>');
                        

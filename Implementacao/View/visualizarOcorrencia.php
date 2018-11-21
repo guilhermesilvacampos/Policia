@@ -29,6 +29,7 @@ $listaOcorrencia = $ocorrenciaDAO->listaOcorrencia();
 				<th id="th1">Segredo</th>
 				<th id="th1">Status</th>
 				<th id="th1">Cidadão Envolvido</th>
+				<th id="th1">Envolvimento</th>
 				<th id="th1">Editar</th>
 				<th id="th1">Excluir</th>
 			
@@ -49,7 +50,7 @@ foreach ($listaOcorrencia as $ocorrencia) {
 	<td id="td1"><?= $ocorrencia->segredoOcorrencia ?> </td>
 	<td id="td1"><?= $ocorrencia->statusOcorrencia ?> </td>
 	<td id="td1"><?= $ocorrencia->nomeCidadao ?> </td>
-
+	<td id="td1"><?= $ocorrencia->tipoEnvolvimento ?> </td>
 	<td id="td1"> 
 		<form action="editarOcorrencia.php" method="post" >
 			<input type="hidden" name="idOcorrencia" value="<?=$ocorrencia->idOcorrencia?>" ></input>

@@ -18,10 +18,12 @@ public $segredoOcorrencia;
 public $statusOcorrencia ;
 public $nomeCidadao;
 public $nomeDelegado;
+public $tipoEnvolvimento;
 
 	
-	function __construct($estadoOcorrencia, $cidadeOcorrencia, $ruaOcorrencia, $numeroCasaOcorrencia,$bairroOcorrencia, $dataOcorrencia, $horaOcorrencia, $segredoOcorrencia,$statusOcorrencia,$nomeCidadao,$nomeDelegado ){
+	function __construct($idOcorrencia,$estadoOcorrencia, $cidadeOcorrencia, $ruaOcorrencia, $numeroCasaOcorrencia,$bairroOcorrencia, $dataOcorrencia, $horaOcorrencia, $segredoOcorrencia,$statusOcorrencia,$nomeCidadao,$nomeDelegado,$tipoEnvolvimento ){
 
+		$this->idOcorrencia = $idOcorrencia;
 		$this->estadoOcorrencia = $estadoOcorrencia;
 		$this->cidadeOcorrencia = $cidadeOcorrencia;
 		$this->ruaOcorrencia = $ruaOcorrencia;
@@ -33,6 +35,7 @@ public $nomeDelegado;
 		$this->statusOcorrencia = $statusOcorrencia;
 		$this->nomeCidadao = $nomeCidadao;
 		$this->nomeDelegado = $nomeDelegado;
+		$this->tipoEnvolvimento = $tipoEnvolvimento;
 
 		
 	}

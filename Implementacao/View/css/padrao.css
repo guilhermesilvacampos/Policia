@@ -1,22 +1,26 @@
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
+  
 }
 
 .topnav {
-  margin-top: none;
-  overflow: hidden;
+
   background-color: #3071a9;
-  height: 95px;
+  height: 110px;
+  width: auto;
+  
+
+
 
 }
 
 .avatar {
-    width: 95px;
+    width: 109px;
     border-radius: 50%;
     display: block;
 
-    margin-left: 500px;
+    margin-left: 450px;
 
     margin-right: auto;
 }

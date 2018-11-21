@@ -24,7 +24,7 @@ require_once("../DAO/ocorrenciaDAO.php");
 //echo "<br>";
 //echo $_POST ['equipeOcorrencia'] ;
 //echo "<br>";
-$_POST['segredoOcorrencia'] = (isset($_POST['segredoOcorrencia']) ) ? "true" : "false";
+$_POST['segredoOcorrencia'] = (isset($_POST['segredoOcorrencia']) ) ? "Sim" : "Nao";
 //echo "<br>";
 //echo $_POST ['statusOcorrencia'] ;
 //echo "<br>";
@@ -36,7 +36,7 @@ $ocorrencia = new Ocorrencia($_POST ['estadoOcorrencia'], $_POST ['cidadeOcorren
 
 $ocorrenciaDAO = new OcorrenciaDAO($conexao);
 
-$inseriuNaTabela = true;
+
 
 if($ocorrenciaDAO->insereOcorrencia($ocorrencia)){
 
@@ -44,38 +44,47 @@ if($ocorrenciaDAO->insereOcorrencia($ocorrencia)){
 
 	foreach ($idUltimaOcorrencia as $key) {
 		$idUltimaOcorrencia1 = $key;
-		echo $idUltimaOcorrencia1;
 	}
 
 	
 
-	foreach ($_POST ['pessoasEnvolvidasArray'] as $cpfEnvolvido) {
-		if($ocorrenciaDAO->insereEnvolvido($idUltimaOcorrencia1,$cpfEnvolvido)){
-			$inseriuNaTabela = true;
-		}else{
-			$inseriuNaTabela = false;
-		}
+	foreach ($_POST ['pessoasEnvolvidasArray'] as $cpfEnvolvido ) {
+		foreach ($_POST['tipoEnvolvimentoArray'] as $tipoEnvolvimento) {
+			
+		
+			if($ocorrenciaDAO->insereEnvolvido($idUltimaOcorrencia1,$cpfEnvolvido,$tipoEnvolvimento)){
+				
+			}else{
+				$msg = mysqli_error($conexao);
+				session_start();
+  				$_SESSION["danger"] = "A Ocorrencia não foi inserida". $msg." ";
+	
+	
+				header("Location:../View/inicio.php",  true,  302 );
+				die();
+			}
 
+		}
 	}
 
-}
+
 
 foreach ($_POST ['policiaisEnvolvidosArray'] as $idPolicial) {
 		if($ocorrenciaDAO->insereEquipe($idUltimaOcorrencia1,$idPolicial)){
-			$inseriuNaTabela = true;
+			
 		}else{
-			$inseriuNaTabela = false;
+			$msg = mysqli_error($conexao);
+				session_start();
+ 			 $_SESSION["danger"] = "A Ocorrencia não foi inserida". $msg." ";
+	
+	
+			header("Location:../View/inicio.php",  true,  302 );
+			die();
 		}
 
 	}
 
-
-
-
- if($inseriuNaTabela){ ?>
-
- <?php
- session_start();
+	session_start();
 
  
 
@@ -85,13 +94,12 @@ $_SESSION['idOcorrencia'] = $idUltimaOcorrencia1;
 	//header("Location:C:/xampp/htdocs/Policia/Implementacao/View/index.php");
 	header("Location:../View/cadastrarEvidencia.php",  true,  302 );
 
- ?>
 
-<?php } else {
 
-	
 
-$msg = mysqli_error($conexao);
+}else{
+
+	$msg = mysqli_error($conexao);
 session_start();
   $_SESSION["danger"] = "A Ocorrencia não foi inserida". $msg." ";
 	
@@ -102,28 +110,7 @@ session_start();
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 mysqli_close($conexao);
-
-
-
-
-
-
-
 
 
 

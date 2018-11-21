@@ -1,8 +1,11 @@
+body{
+    background-color: #FED766;
+}
 .conteudo{
-
+    background-color: white;
    margin-left: 245px;
     margin-top: 20px;
-    margin-right: 10px;
+    margin-right: -100px;
     border: solid;
     border-width: thin;
      border-color: #3071a9;
@@ -27,4 +30,7 @@
 
 #tr1:nth-child(even) {
     background-color: #dddddd;
+}
+.topnav{
+width: 136.2em;
 }

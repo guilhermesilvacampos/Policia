@@ -1,35 +1,121 @@
 <?php
 require_once("cabecalho.php");
-require_once("padrao.php");
+
 
 ?>
 <link href="css/inicio.css" rel="stylesheet">
 
-	<div class="conteudo">
 
-<form>
-<div class="inputs">
-  <div class="form-group">
+<div class="topnav" id="myTopnav">
+  <table>
+    <tr>
+      <td><img src="image/avatar.jpg" alt="Avatar" class="avatar"> </td>
+      <td><b><p class="h">GOPolice </p></b></td>
+    </tr>
+  </table>
+  
+  
+  
+
+  
+</div>
+<div class="conteudo">
+	<div class="row justify-content-around">
+    
+      
+    
+
+    <div class="flip-card col-4">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <h1 id="h11" class="btn btn-secondary btn-lg btn-block"> <i class="far fa-user"></i>Cidadão</h1>
+    </div>
+    <div class="flip-card-back">
+      <a type="button" href="cadastrarCidadao.php" class="btn btn-secondary btn-lg btn-block"><h1>Cadastrar </h1></a>
+      <a type="button" href="visualizarCidadao.php" class="btn btn-secondary btn-lg btn-block"><h1>Visualizar </h1></a>
+    </div>
+  </div>
+</div>
 
 
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+<div class="flip-card col-4">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <h1 id="h11" class="btn btn-secondary btn-lg btn-block"> <i class="fas fa-exclamation-triangle"></i>Ocorrência</h1>
+    </div>
+    <div class="flip-card-back">
+      <a type="button" href="cadastrarOcorrencia.php" class="btn btn-secondary btn-lg btn-block"><h1>Cadastrar </h1></a>
+      <a type="button" href="visualizarOcorrencia.php" class="btn btn-secondary btn-lg btn-block"><h1>Visualizar </h1></a>
+    </div>
   </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+</div>
+
+<div  class="flip-card col-4">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <h1 id="h11" class="btn btn-secondary btn-lg btn-block"><i class="fas fa-user-secret"></i>Evidência</h1>
+    </div>
+    <div class="flip-card-back">
+      <a id="button1" type="button" class="btn btn-secondary btn-lg btn-block"><h1>Visualizar </h1></a>
+    </div>
   </div>
-  <div class="form-group form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+</div>
+
+
+<div class="flip-card col-4">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <h1 id="h11" class="btn btn-secondary btn-lg btn-block"><i class="fas fa-id-card-alt"></i>Equipe</h1>
+    </div>
+    <div class="flip-card-back">
+      <a type="button" class="btn btn-secondary btn-lg btn-block"><h1>Cadastrar </h1></a>
+      <a type="button" class="btn btn-secondary btn-lg btn-block"><h1>Visualizar </h1></a>
+    </div>
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+</div>
+
+<div class="flip-card col-4">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <h1 id="h11" class="btn btn-secondary btn-lg btn-block"><i class="fas fa-map-marker-alt"></i>Delegacia</h1>
+    </div>
+    <div class="flip-card-back">
+      <a type="button" class="btn btn-secondary btn-lg btn-block"><h1>Cadastrar </h1></a>
+      <a type="button" class="btn btn-secondary btn-lg btn-block"><h1>Visualizar </h1></a>
+    </div>
+  </div>
+</div>
+
+<div class="flip-card col-4">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <h1 id="h11" class="btn btn-secondary btn-lg btn-block"><i class="far fa-file-alt"></i>Relatórios</h1>
+    </div>
+    <div class="flip-card-back">
+      <a type="button" class="btn btn-secondary btn-lg btn-block"><h1>R1 </h1></a>
+      <a type="button" class="btn btn-secondary btn-lg btn-block"><h1>R2 </h1></a>
+    </div>
+  </div>
+</div>
+
+<div id="card" class="flip-card col-4 ">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <p id="h12" class="btn btn-secondary btn-lg btn-block"> <i class="fas fa-balance-scale"></i>Mandado de Prisão</p>
+    </div>
+    <div class="flip-card-back">
+      <a id="button1" type="button" class="btn btn-secondary btn-lg btn-block"><h1>Expedir</h1></a>
+      
+    </div>
+  </div>
+</div>
 
 </div>
-</form>
+
 
 </div>
+</div>
+ 
 
 <?php
 require_once("rodape.php");

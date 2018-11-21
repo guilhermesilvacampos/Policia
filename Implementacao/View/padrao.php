@@ -35,36 +35,36 @@ require_once("cabecalho.php");
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
-            <a href="cadastrarCidadao.php">Cadastrar Cidadão</a>
-            <a href="visualizarCidadao.php">Visualizar Cidadãos</a>
+            <a href="cadastrarCidadao.php">Cadastrar</a>
+            <a href="visualizarCidadao.php">Visualizar</a>
         </div>
         <button class="dropdown-btn"><i class="fas fa-exclamation-triangle"></i>Ocorrência
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
-            <a href="cadastrarOcorrencia.php">Cadastrar Ocorrência</a>
-            <a href="visualizarOcorrencia.php">Visualizar Ocorrências</a>
+            <a href="cadastrarOcorrencia.php">Cadastrar</a>
+            <a href="visualizarOcorrencia.php">Visualizar</a>
         </div>
 
         <button class="dropdown-btn"><i class="fas fa-user-secret"></i>Evidência
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
-            <a href="#">Visualizar Evidências</a>
+            <a href="#">Visualizar</a>
         </div>
         <button class="dropdown-btn"><i class="fas fa-id-card-alt"></i>Equipe
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
-            <a href="#">Cadastrar Policial</a>
-            <a href="#">Visualizar Equipe</a>
+            <a href="#">Cadastrar</a>
+            <a href="#">Visualizar</a>
         </div>
         <button class="dropdown-btn"><i class="fas fa-map-marker-alt"></i>Delegacia
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
-            <a href="#">Cadastrar Delegacia</a>
-            <a href="#">Visualizar Delegacias</a>
+            <a href="#">Cadastrar</a>
+            <a href="#">Visualizar</a>
         </div>
         <button class="dropdown-btn"> <i class="far fa-file-alt"></i>Relatórios
             <i class="fa fa-caret-down"></i>
@@ -99,6 +99,7 @@ require_once("cabecalho.php");
                 }
             });
         }
+
     </script>
 
 <?php
