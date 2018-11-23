@@ -11,13 +11,22 @@ input[type=text], input[type=password] {
     padding: 12px 20px;
     margin: 10px 0;
 
-    margin-left: 2%;
+    margin-left: 30px;
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
 }
+
+#login{
+    margin-left: 35px;
+}
+
 label{
     margin-left: 11%;
+}
+
+.inputs{
+    margin-left: = 500px;
 }
 
 /* Set a style for all buttons */
@@ -91,11 +100,12 @@ span.psw {
 
 /* Modal Content/Box */
 .modal-content {
-    background-color: #fefefe;
-    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    background-color: #FED766;
+    margin: 10% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
     border: 1px solid #888;
     width: 50%;
     height: 85%/* Could be more or less, depending on screen size */
+    margin-bottom = 5px;
 }
 
 /* The Close Button (x) */
@@ -139,4 +149,14 @@ span.psw {
     .cancelbtn {
         width: 100%;
     }
+}
+
+
+.conteudo{
+
+    margin-left: 5%;
+    margin-top: 2%;
+    margin-right: 5%;
+    
+
 }

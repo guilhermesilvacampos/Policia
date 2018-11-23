@@ -112,22 +112,13 @@ CREATE TABLE equipeocorrencia(
 
 );
 
-CREATE TABLE `usuarios` (
-  `usuarioId` smallint(4) NOT NULL auto_increment,
-  `usuarioNome` text collate utf8_unicode_ci NOT NULL,
-  `usuarioSenha` text collate utf8_unicode_ci NOT NULL,
-  `usurioEmail` text collate utf8_unicode_ci NOT NULL,
-  `usuarioNivel` text collate utf8_unicode_ci NOT NULL,
-  PRIMARY KEY  (`usuarioId`)
-);
+CREATE TABLE usuarios ( 
+    email varchar(255) not null primary key,
+    senha varchar(30) not null,
+    permissao varchar(30) not null
 
-DROP TABLE IF EXISTS `usuarionivel`;
-
-CREATE TABLE `usuarionivel` (
-  `nivelId` smallint(4) NOT NULL auto_increment,
-  `nivelNome` text collate utf8_unicode_ci NOT NULL,
-  PRIMARY KEY  (`nivelId`)
 );
+  
 
 
 
@@ -141,6 +132,10 @@ INSERT INTO `delegado`(`idDelegado`, `nomeDelegado`) VALUES (2,'Delegado Siqueir
 INSERT INTO `equipe`(`idEquipe`, `nomeEquipe`) VALUES (1,'Equipe Rocket');
 
 INSERT INTO `equipe`(`idEquipe`, `nomeEquipe`) VALUES (2,'Equipe #VemProFut');
+
+
+INSERT INTO usuarios(email,senha,permissao) VALUES ('admin@hotmail.com','admin','admin');
+INSERT INTO usuarios(email,senha,permissao) VALUES ('funcionario@hotmail.com','funcionario','funcionario');
 
 
 

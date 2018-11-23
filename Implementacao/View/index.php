@@ -6,40 +6,69 @@
  * Time: 17:59
  */
 
+require_once("mostraAlerta.php");
+require_once("logica-usuario.php");
 
+mostraAlerta("danger");
 ?>
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
+
+
+
+
+
+
+<?php if(!usuarioEstaLogado()) {
+
+    ?>
+
+<link href=css/bootstrap.css rel="stylesheet">
     <link href="css/index.css" rel="stylesheet">
+    
 
 
     <form class="modal-content animate" action="login.php" method="post">
         <div class="imgcontainer">
-            <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+            
             <img src="image/avatar.jpg" alt="Avatar" class="avatar">
         </div>
 
-        <div class="container ">
+        
+            <div class="conteudo">
+                <div class="inputs">
             <div class="form-horizontal">
                 <label for="uname"><b>Login</b></label>
-                <input type="text" placeholder="Enter Username" name="uname" required>
+                <input id="login" type="text" placeholder="Escreva seu email de login" name="email" required>
             </div>
             <div class="form-horizontal">
                 <label for="psw"><b>Senha</b></label>
-                <input type="password" placeholder="Enter Password" name="psw" required>
+                <input id="password" type="password" placeholder="Escreva sua senha" name="senha" required>
             </div>
+                </div>
             <div class="cont1">
                 <button type="submit">Login</button>
             </div>
+            </div>
 
-        </div>
+        
 
-        <div class="container cont2" style="background-color:#f1f1f1">
-            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">
-                Cancel
-            </button>
-            <span class="psw">Forgot <a href="#">password?</a></span>
-        </div>
+        
     </form>
 
+<?php }?>
 
 <?php
 require_once("rodape.php");

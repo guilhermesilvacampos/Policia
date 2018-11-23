@@ -31,6 +31,11 @@ error_reporting(E_ALL ^ E_NOTICE);
 
 require_once("../DAO/conecta.php");
 require_once("mostraAlerta.php");
+require_once("logica-usuario.php");
+
+
+
+
 ?>
 <html>
 
@@ -52,6 +57,7 @@ require_once("mostraAlerta.php");
     <?php
 mostraAlerta("danger");
 mostraAlerta("success");
+verificaUsuario();
 ?>
 
 

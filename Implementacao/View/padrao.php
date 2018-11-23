@@ -16,6 +16,13 @@ require_once("cabecalho.php");
 		<tr>
 			<td><img src="image/avatar.jpg" alt="Avatar" class="avatar"> </td>
 			<td><b><p class="h">GOPolice </p></b></td>
+            <td>
+                <form action="logout.php">
+                    <button id="a1" class="btn btn-danger btn-lg"><h2>Deslogar</h2></button>
+                </form>
+
+                </td>
+            
 		</tr>
 	</table>
 	
@@ -56,26 +63,34 @@ require_once("cabecalho.php");
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
+            <?php if(verificaPermissao()) { ?>
             <a href="#">Cadastrar</a>
+            <?php } ?>
             <a href="#">Visualizar</a>
         </div>
         <button class="dropdown-btn"><i class="fas fa-map-marker-alt"></i>Delegacia
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
+            <?php if(verificaPermissao()) { ?>
             <a href="#">Cadastrar</a>
+            <?php } ?>
             <a href="#">Visualizar</a>
         </div>
         <button class="dropdown-btn"> <i class="far fa-file-alt"></i>Relatórios
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
-            <a href="#">Link 1</a>
-            <a href="#">Link 2</a>
-            <a href="#">Link 3</a>
+            <?php if(verificaPermissao()) { ?>
+            <a href="#">Relatório Estatístico</a>
+            <?php } ?>
+            <a href="#">Relatório de Evidência</a>
+            <a href="#">Detalhamento da Ocorrência</a>
+            <a href="#">Ficha Criminal</a>
         </div>
-
+<?php if(verificaPermissao()) { ?>
         <a href="#about"><i class="fas fa-balance-scale"></i>Expedir Mandado de Prisão</a>
+        <?php } ?>
 
     </div>
 

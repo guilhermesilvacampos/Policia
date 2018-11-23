@@ -1,6 +1,6 @@
 <link href="css/mostraAlerta.css" rel="stylesheet">
 <?php 
-session_start();
+
 function mostraAlerta($tipo){
 
 	
